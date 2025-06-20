@@ -34343,11 +34343,11 @@ OkHttp 是一个功能强大、高效且易于使用的 HTTP 客户端，它是 
 
 ---
 
-## 极尽详细讲解 Android 中的 OkHttp 所有组件及使用
+ 极尽详细讲解 Android 中的 OkHttp 所有组件及使用
 
-### 面试题：请极尽详细全面具体地讲解 Android 中的 OkHttp 的所有组件和组件的所有参数与方法的完整使用。
+ 面试题：请极尽详细全面具体地讲解 Android 中的 OkHttp 的所有组件和组件的所有参数与方法的完整使用。
 
-### 1. OkHttp 概述与核心优势
+ 1. OkHttp 概述与核心优势
 
 **知识技术讲解：**
 
@@ -34374,7 +34374,7 @@ OkHttp 是由 Square 公司开发的一个用于 Android 和 Java 应用程序�
 
 ---
 
-### 2. OkHttpClient (HTTP 客户端)
+ 2. OkHttpClient (HTTP 客户端)
 
 **知识技术讲解：**
 
@@ -34768,7 +34768,7 @@ public class OkHttpClientManager {
 
 ---
 
-### 3. Request (HTTP 请求)
+ 3. Request (HTTP 请求)
 
 **知识技术讲解：**
 
@@ -35144,7 +35144,7 @@ public class RequestExamples {
 
 ---
 
-### 4. RequestBody (请求体)
+ 4. RequestBody (请求体)
 
 **知识技术讲解：**
 
@@ -35189,7 +35189,7 @@ public class RequestExamples {
 
 ---
 
-### 5. Response (HTTP 响应)
+ 5. Response (HTTP 响应)
 
 **知识技术讲解：**
 
@@ -35274,7 +35274,7 @@ public void onResponse(@NonNull Call call, @NonNull Response response) throws IO
 
 ---
 
-### 6. ResponseBody (响应体)
+ 6. ResponseBody (响应体)
 
 **知识技术讲解：**
 
@@ -35361,7 +35361,7 @@ public void onResponse(@NonNull Call call, @NonNull Response response) throws IO
 
 ---
 
-### 7. Call (请求执行者)
+ 7. Call (请求执行者)
 
 **知识技术讲解：**
 
@@ -35534,7 +35534,7 @@ public class CallExamples {
 
 ---
 
-### 8. Callback (异步回调)
+ 8. Callback (异步回调)
 
 **知识技术讲解：**
 
@@ -35560,7 +35560,7 @@ public class CallExamples {
 
 ---
 
-### 9. Dispatcher (请求调度器)
+ 9. Dispatcher (请求调度器)
 
 **知识技术讲解：**
 
@@ -35689,7 +35689,7 @@ public class DispatcherExamples {
 
 ---
 
-### 10. Interceptor (拦截器)
+ 10. Interceptor (拦截器)
 
 **知识技术讲解：**
 
@@ -35979,7 +35979,7 @@ public class InterceptorExamples {
 
 ---
 
-### 11. ConnectionPool (连接池)
+ 11. ConnectionPool (连接池)
 
 **知识技术讲解：**
 
@@ -36025,7 +36025,7 @@ OkHttpClient.Builder builder = new OkHttpClient.Builder()
 
 ---
 
-### 12. Cache (缓存)
+ 12. Cache (缓存)
 
 **知识技术讲解：**
 
@@ -36181,7 +36181,7 @@ public class CacheExamples {
 
 ---
 
-### 13. Headers (请求/响应头)
+ 13. Headers (请求/响应头)
 
 **知识技术讲解：**
 
@@ -36254,7 +36254,7 @@ public void onResponse(@NonNull Call call, @NonNull Response response) throws IO
 
 ---
 
-### 14. HttpUrl (URL 构建)
+ 14. HttpUrl (URL 构建)
 
 **知识技术讲解：**
 
@@ -36383,7 +36383,7 @@ public class HttpUrlExamples {
 
 ---
 
-### 15. CookieJar (Cookie 管理)
+ 15. CookieJar (Cookie 管理)
 
 **知识技术讲解：**
 
@@ -36449,7 +36449,7 @@ OkHttpClient.Builder builder = new OkHttpClient.Builder()
 
 ---
 
-### 16. Authenticator (认证器)
+ 16. Authenticator (认证器)
 
 **知识技术讲解：**
 
@@ -36515,7 +36515,7 @@ OkHttpClient.Builder builder = new OkHttpClient.Builder()
 
 ---
 
-### 17. EventListener (事件监听器)
+ 17. EventListener (事件监听器)
 
 **知识技术讲解：**
 
@@ -36618,7 +36618,7 @@ OkHttpClient.Builder builder = new OkHttpClient.Builder()
 
 ---
 
-### 18. Dns (DNS 解析)
+ 18. Dns (DNS 解析)
 
 **知识技术讲解：**
 
@@ -36675,7 +36675,7 @@ OkHttpClient.Builder builder = new OkHttpClient.Builder()
 
 ---
 
-### 总结
+ 总结
 
 “总而言之，OkHttp 是一个设计精良、功能强大的 HTTP 客户端。它通过模块化的组件设计，提供了极高的灵活性和可扩展性。
 
@@ -41272,9 +41272,9 @@ public class MainActivity extends AppCompatActivity {
 
 ---
 
-## Android 作业：搜索、存储与展示
+ Android 作业：搜索、存储与展示
 
-### 作业需求分析：
+ 作业需求分析：
 
 1.  **功能一：搜索功能，列表展示，支持下拉刷新和上拉加载更多。**
     *   **网络请求：** 使用 OkHttp 或 Retrofit。我们将主要使用 **Retrofit**，因为它更适合 RESTful API，并且底层就是 OkHttp。
@@ -41299,7 +41299,7 @@ public class MainActivity extends AppCompatActivity {
 
 ---
 
-### 整体架构设计：
+ 整体架构设计：
 
 我们将采用 MVVM (Model-View-ViewModel) 架构模式，以提高代码的可维护性和可测试性。
 
@@ -41319,9 +41319,9 @@ public class MainActivity extends AppCompatActivity {
 
 ---
 
-### 详细实现步骤：
+ 详细实现步骤：
 
-#### 步骤 1：项目初始化与依赖配置
+ 步骤 1：项目初始化与依赖配置
 
 **知识技术讲解：**
 
@@ -41466,7 +41466,7 @@ dependencies {
 
 ---
 
-#### 步骤 2：定义数据模型 (Model)
+ 步骤 2：定义数据模型 (Model)
 
 **知识技术讲解：**
 
@@ -41705,7 +41705,7 @@ public class GameInfo {
 
 ---
 
-#### 步骤 3：网络层 (Retrofit)
+ 步骤 3：网络层 (Retrofit)
 
 **知识技术讲解：**
 
@@ -41825,7 +41825,7 @@ public class RetrofitClient {
 
 ---
 
-#### 步骤 4：本地存储层 (Room Database)
+ 步骤 4：本地存储层 (Room Database)
 
 **知识技术讲解：**
 
@@ -41961,7 +41961,7 @@ public class DatabaseClient {
 
 ---
 
-#### 步骤 5：数据仓库 (Repository)
+ 步骤 5：数据仓库 (Repository)
 
 **知识技术讲解：**
 
@@ -42133,7 +42133,7 @@ public class GameRepository {
 
 ---
 
-#### 步骤 6：ViewModel 层
+ 步骤 6：ViewModel 层
 
 **知识技术讲解：**
 
@@ -42370,7 +42370,7 @@ public class GameViewModel extends AndroidViewModel {
 
 ---
 
-#### 步骤 7：View 层 (MainActivity, RecyclerView Adapter)
+ 步骤 7：View 层 (MainActivity, RecyclerView Adapter)
 
 **知识技术讲解：**
 
@@ -42799,7 +42799,7 @@ public class MainActivity extends AppCompatActivity {
 
 ---
 
-### 8. 运行与测试
+ 8. 运行与测试
 
 1.  **确保网络连接：** 您的设备或模拟器需要有网络连接才能访问 `hotfix-service-prod.g.mi.com`。
 2.  **输入搜索词：** 在 `EditText` 中输入搜索内容（例如 "游戏" 或 "王者"）。
@@ -42812,7 +42812,7 @@ public class MainActivity extends AppCompatActivity {
 
 ---
 
-### 9. 面试官话术
+ 9. 面试官话术
 
 当面试官问到 "请极尽详细全面具体地教我完成该作业" 时，您可以按照以下结构和要点进行回答，结合您对代码示例的理解：
 
