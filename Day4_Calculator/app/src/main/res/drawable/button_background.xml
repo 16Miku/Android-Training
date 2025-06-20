@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 按钮按下时的状态 -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#60ADD8E6"/> <!-- 按下时颜色稍微深一点或透明度低一点 -->
+            <corners android:radius="8dp"/> <!-- 圆角半径 -->
+            <stroke android:width="1dp" android:color="#6087CEEB"/> <!-- 边框颜色 -->
+        </shape>
+    </item>
+    <!-- 按钮默认状态 -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/light_blue_transparent"/> <!-- 填充色为透明浅蓝色 -->
+            <corners android:radius="8dp"/> <!-- 圆角半径 -->
+            <stroke android:width="1dp" android:color="#8087CEEB"/> <!-- 边框颜色，稍微不透明一点 -->
+        </shape>
+    </item>
+</selector>

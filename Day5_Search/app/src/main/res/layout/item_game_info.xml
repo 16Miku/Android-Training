@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+    <!-- 游戏图标 -->
+    <ImageView
+        android:id="@+id/iv_game_icon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:scaleType="centerCrop"
+        android:layout_marginEnd="16dp"
+    tools:src="@mipmap/ic_launcher" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+    android:orientation="vertical">
+
+    <!-- 游戏名称 -->
+    <TextView
+        android:id="@+id/tv_game_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        tools:text="游戏名称：奥特曼正义降临" />
+
+    <!-- 游戏ID -->
+    <TextView
+        android:id="@+id/tv_game_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray"
+        tools:text="游戏ID: 383" />
+
+    <!-- 游戏描述 -->
+    <TextView
+        android:id="@+id/tv_game_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray"
+        android:maxLines="3"
+        android:ellipsize="end"
+        tools:text="描述: 炫酷格斗游戏《奥特曼正义降临》震撼来袭，是用强大的实力正面交锋，还是用巧妙的操作戏弄对手，亦或用完美的战术以弱胜强，一切由你做主。" />
+
+</LinearLayout>
+
+    </LinearLayout>
+
+    </androidx.cardview.widget.CardView>

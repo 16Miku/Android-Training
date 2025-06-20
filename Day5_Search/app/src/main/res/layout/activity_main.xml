@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/searchText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入关键词进行搜索"
+        android:inputType="text"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:background="@drawable/edittext_background"
+        android:padding="12dp"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/asyncGetButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="搜索"
+    android:layout_marginBottom="16dp"
+    android:backgroundTint="#673AB7" />
+
+    <!-- 移除同步GET请求按钮，因为我们主要关注异步和列表展示 -->
+    <Button
+        android:id="@+id/syncGetButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="同步 GET 请求"
+        android:visibility="gone" />
+
+    <!-- 添加 RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_game_info" />
+
+
+
+</LinearLayout>
