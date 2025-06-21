@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_margin="4dp">
+    android:layout_margin="4dp"
+    android:background="#F0F0F0" >
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_description"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Waterfall"
-        />
+        android:textColor="@android:color/black"
+        android:textSize="10sp"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        tools:text="H: 400px\nURL: https://picsum.photos/id/123/400/400..." />
 
     <ImageView
         android:id="@+id/imageView"
@@ -17,6 +27,7 @@
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"
-        android:src="@mipmap/ic_launcher"/>
+        android:background="#CCCCCC"
+        tools:src="@mipmap/ic_launcher"/>
 
 </LinearLayout>

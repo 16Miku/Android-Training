@@ -1,4 +1,4 @@
-// ImageAdapter.java (修正后)
+// app/src/main/java/com/example/day6_waterfall/ImageAdapter.java
 package com.example.day6_waterfall;
 
 import android.content.Context;
@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,68 +21,82 @@ import com.chad.library.adapter4.viewholder.QuickViewHolder;
 import com.bumptech.glide.request.target.Target;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
-
 import jp.wasabeef.glide.transformations.GrayscaleTransformation;
+// app/src/main/java/com.example/day6_waterfall/ImageAdapter.java
 
-// 1. 构造函数不再需要传入布局ID
+// ... (其他导入和类定义保持不变)
+
 public class ImageAdapter extends BaseQuickAdapter<ImageItem, QuickViewHolder> {
 
-    // 2. 必须重写 onCreateViewHolder 方法来创建视图和 ViewHolder
+    private int mItemWidth;
+
+    public ImageAdapter(int itemWidth) {
+        super();
+        this.mItemWidth = itemWidth;
+    }
+
     @NotNull
     @Override
     protected QuickViewHolder onCreateViewHolder(@NotNull Context context, @NotNull ViewGroup parent, int viewType) {
-        // 在这里传入 item 布局
         return new QuickViewHolder(R.layout.item_image, parent);
     }
 
-    // 3. 将原来的 'convert' 方法重命名为 'onBindViewHolder'，并更新方法签名
     @Override
     protected void onBindViewHolder(@NotNull QuickViewHolder holder, int position, @org.jetbrains.annotations.Nullable ImageItem item) {
-        // 如果 item 为空，则直接返回，增加代码健壮性
         if (item == null) return;
 
         ImageView imageView = holder.getView(R.id.imageView);
+        TextView descriptionView = holder.getView(R.id.tv_description);
 
-        // 设置一个最小高度，防止图片加载时布局跳动
-        imageView.setMinimumHeight(item.getHeight());
+        ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
+        layoutParams.width = mItemWidth;
+        layoutParams.height = item.getHeight();
+        imageView.setLayoutParams(layoutParams);
 
-
-        // 创建一个通用的 Glide 错误监听器
         RequestListener<Drawable> glideListener = new RequestListener<Drawable>() {
             @Override
             public boolean onLoadFailed(@Nullable GlideException e, @Nullable Object model, @NonNull Target<Drawable> target, boolean isFirstResource) {
-                // 在 Logcat 中打印详细的错误日志
-                Log.e("GlideError", "Image load failed for URL: " + model, e);
-                return false; // 返回 false 让 Glide 继续调用 .error() 中设置的占位图
+                Log.e("GlideError", "Image load failed for URL: " + model + ", Exception: " + e.getMessage());
+                if (e != null && e.getRootCauses() != null) {
+                    for (Throwable rootCause : e.getRootCauses()) {
+                        Log.e("GlideError", "Root Cause: " + rootCause.getMessage());
+                    }
+                }
+                return false;
             }
 
             @Override
             public boolean onResourceReady(@NonNull Drawable resource, @NonNull Object model, Target<Drawable> target, com.bumptech.glide.load.DataSource dataSource, boolean isFirstResource) {
-                return false; // 返回 false 让 Glide 正常处理加载成功的图片
+                return false;
             }
         };
 
-
-        // 使用 Glide 加载图片的代码逻辑保持不变
+        // 使用 Glide 加载图片，并随机应用圆角或灰度效果
+        // *** 关键改进：添加 .diskCacheStrategy(DiskCacheStrategy.NONE) 和 .skipMemoryCache(true) ***
+        // 这会强制 Glide 每次都从网络加载，不使用任何缓存
         if (Math.random() > 0.5) {
-            // 圆角效果
             Glide.with(getContext())
                     .load(item.getUrl())
-                    .transform(new CenterCrop(), new RoundedCorners(25)) // 25px的圆角
-                    .placeholder(R.drawable.ic_launcher_background)
-                    .error(R.drawable.ic_launcher_foreground)
-                    .listener(glideListener) // <-- 在这里添加监听器
+                    .transform(new CenterCrop(), new RoundedCorners(25))
+                    .placeholder(R.drawable.placeholder_image)
+                    .error(R.drawable.error_image)
+                    .listener(glideListener)
+                    .diskCacheStrategy(com.bumptech.glide.load.engine.DiskCacheStrategy.NONE) // 不使用磁盘缓存
+                    .skipMemoryCache(true) // 不使用内存缓存
                     .into(imageView);
         } else {
-            // 灰度效果
             Glide.with(getContext())
                     .load(item.getUrl())
                     .transform(new GrayscaleTransformation())
-                    .placeholder(R.drawable.ic_launcher_background)
-                    .error(R.drawable.ic_launcher_foreground)
-                    .listener(glideListener) // <-- 在这里添加监听器
+                    .placeholder(R.drawable.placeholder_image)
+                    .error(R.drawable.error_image)
+                    .listener(glideListener)
+                    .diskCacheStrategy(com.bumptech.glide.load.engine.DiskCacheStrategy.NONE) // 不使用磁盘缓存
+                    .skipMemoryCache(true) // 不使用内存缓存
                     .into(imageView);
         }
+
+        String displayUrl = item.getUrl().length() > 40 ? item.getUrl().substring(0, 40) + "..." : item.getUrl();
+        descriptionView.setText("H: " + item.getHeight() + "px\nURL: " + displayUrl);
     }
 }

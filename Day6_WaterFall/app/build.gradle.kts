@@ -59,4 +59,8 @@ dependencies {
     implementation("jp.wasabeef:glide-transformations:4.3.0")
 
 
+    // 5. Retrofit (网络请求) - 关键！添加这两行
+    implementation("com.squareup.retrofit2:retrofit:2.9.0") // Retrofit 核心库
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0") // Retrofit 的 Gson 转换器
+
 }

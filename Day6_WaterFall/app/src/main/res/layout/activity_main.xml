@@ -6,13 +6,29 @@
     android:id="@+id/refreshLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".MainActivity">
+
+    <!-- SmartRefreshLayout 经典刷新头部 -->
+    <com.scwang.smart.refresh.header.ClassicsHeader
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srlPrimaryColor="@color/colorPrimary"
+        app:srlAccentColor="@android:color/white" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="4dp"
-        android:clipToPadding="false"/>
+        android:clipToPadding="false"
+        tools:listitem="@layout/item_image" />
 
-</com.scwang.smart.refresh.layout.SmartRefreshLayout>
+    <!-- SmartRefreshLayout 经典加载底部 -->
+    <com.scwang.smart.refresh.footer.ClassicsFooter
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srlPrimaryColor="@color/colorPrimary"
+        app:srlAccentColor="@android:color/white" />
+
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
