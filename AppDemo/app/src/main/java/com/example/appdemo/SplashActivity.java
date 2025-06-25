@@ -28,10 +28,10 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 /*
                  * 在延迟结束后执行此Runnable
-                 * 创建一个Intent，用于从SplashActivity跳转到MainActivity
-                 * MainActivity是您应用的主界面，我们将在后续步骤中完善它
+                 * 创建一个Intent，用于从SplashActivity跳转到LoginActivity
+                 * 现在应用程序启动后会首先进入登录页面
                  */
-                Intent mainIntent = new Intent(SplashActivity.this, MainActivity.class);
+                Intent mainIntent = new Intent(SplashActivity.this, LoginActivity.class);
                 startActivity(mainIntent); // 启动MainActivity
 
                 // 结束当前的SplashActivity，防止用户按返回键回到欢迎页面

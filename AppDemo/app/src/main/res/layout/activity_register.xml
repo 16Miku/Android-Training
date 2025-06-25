@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp"
+    android:background="#F5F5F5"
+    tools:context=".RegisterActivity">
+
+    <!-- 注册页标题 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="新用户注册"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:layout_marginBottom="40dp" />
+
+    <!-- 用户名输入框 -->
+    <EditText
+        android:id="@+id/et_register_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入用户名"
+        android:inputType="textPersonName"
+        android:padding="12dp"
+        android:background="@drawable/edittext_background"
+        android:layout_marginBottom="16dp"
+        android:autofillHints="username" />
+
+    <!-- 密码输入框 -->
+    <EditText
+        android:id="@+id/et_register_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入密码"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:background="@drawable/edittext_background"
+        android:layout_marginBottom="16dp"
+        android:autofillHints="password" />
+
+    <!-- 确认密码输入框 -->
+    <EditText
+        android:id="@+id/et_confirm_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请确认密码"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:background="@drawable/edittext_background"
+        android:layout_marginBottom="24dp"
+        android:autofillHints="password" />
+
+    <!-- 注册按钮 -->
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="注册"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#28A745"
+        android:padding="12dp"
+        android:textSize="18sp" />
+
+</LinearLayout>
