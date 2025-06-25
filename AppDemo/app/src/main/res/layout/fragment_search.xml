@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D1C4E9"
+    tools:context=".SearchFragment">
+
+    <!-- TODO: 在这里添加搜索页面的具体内容，例如搜索框、搜索结果列表等 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="搜索页面内容"
+        android:textSize="24sp"
+        android:textColor="#000000" />
+
+</FrameLayout>
