@@ -31,6 +31,12 @@
         app:srlPrimaryColor="#4CAF50"
         app:srlAccentColor="#FFFFFF">
 
+        <!-- 【新增】经典刷新头 -->
+        <com.scwang.smart.refresh.header.ClassicsHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
         <!-- RecyclerView 用于显示瀑布流列表 -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/home_recycler_view"
@@ -38,6 +44,12 @@
             android:layout_height="match_parent"
             android:padding="4dp"
             android:clipToPadding="false" />
+
+        <!-- 【新增】经典加载尾 -->
+        <com.scwang.smart.refresh.footer.ClassicsFooter
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
 
     </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 
