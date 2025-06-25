@@ -1,0 +1,768 @@
+*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+Build fingerprint: 'samsung/star2qltezh/star2qltechn:9/PQ3B.190801.04251116/G9650ZHU2ARC6:user/release-keys'
+Revision: '0'
+ABI: 'x86_64'
+pid: 1318, tid: 1330, name: Binder:1318_3  >>> /system/bin/vold <<<
+signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x28
+Cause: null pointer dereference
+    rax 0000000000010000  rbx 0000000000000000  rcx 0000000000000000  rdx 0000000000000001
+    r8  fffffffffffffff8  r9  00007ffff6a31438  r10 0000000000000064  r11 0000000000000246
+    r12 00007ffff7359110  r13 00007ffff7359058  r14 00007ffff6a46034  r15 00007ffff67051f0
+    rdi 0000000000000000  rsi 00007ffff6705170
+    rbp 0000000080000001  rsp 00007ffff6705168  rip 00005555555d9935
+
+backtrace:
+    #00 pc 0000000000085935  /system/bin/vold (fs_mgr_is_convertible_to_fbe(fstab_rec const*)+5)
+    #01 pc 0000000000029e64  /system/bin/vold (cryptfs_isConvertibleToFBE()+84)
+    #02 pc 000000000001cad7  /system/bin/vold (android::vold::VoldNativeService::isConvertibleToFbe(bool*)+87)
+    #03 pc 00000000000a353d  /system/bin/vold (android::os::BnVold::onTransact(unsigned int, android::Parcel const&, android::Parcel*, unsigned int)+4365)
+    #04 pc 000000000004f47e  /system/lib64/libbinder.so (android::BBinder::transact(unsigned int, android::Parcel const&, android::Parcel*, unsigned int)+94)
+    #05 pc 000000000005a930  /system/lib64/libbinder.so (android::IPCThreadState::executeCommand(int)+512)
+    #06 pc 000000000005a66f  /system/lib64/libbinder.so (android::IPCThreadState::getAndExecuteCommand()+159)
+    #07 pc 000000000005ad61  /system/lib64/libbinder.so (android::IPCThreadState::joinThreadPool(bool)+49)
+    #08 pc 000000000007f857  /system/lib64/libbinder.so (android::PoolThread::threadLoop()+23)
+    #09 pc 000000000000f47a  /system/lib64/libutils.so (android::Thread::_threadLoop(void*)+298)
+    #10 pc 000000000009079b  /system/lib64/libc.so (__pthread_start(void*)+27)
+    #11 pc 000000000002bdad  /system/lib64/libc.so (__start_thread+61)
+
+stack:
+         00007ffff67050e8  00007ffff74abb57  /system/lib64/libc.so (je_malloc+55)
+         00007ffff67050f0  0000000000000001
+         00007ffff67050f8  00007ffff6a27380  [anon:libc_malloc]
+         00007ffff6705100  00007ffff6705308  <anonymous:00007ffff6609000>
+         00007ffff6705108  00007ffff74f9d94  [anon:.bss]
+         00007ffff6705110  00007ffff641f0c0  [anon:libc_malloc]
+         00007ffff6705118  00007ffff6a27388  [anon:libc_malloc]
+         00007ffff6705120  0000000000000010
+         00007ffff6705128  00007ffff74b0373  /system/lib64/libc.so (je_free+99)
+         00007ffff6705130  00005555556184a0  /system/bin/vold
+         00007ffff6705138  00007ffff67051d0  <anonymous:00007ffff6609000>
+         00007ffff6705140  00007ffff7359110  /system/lib64/libcutils.so
+         00007ffff6705148  00007ffff7359058  /system/lib64/libcutils.so
+         00007ffff6705150  00007ffff6a46034  [anon:libc_malloc]
+         00007ffff6705158  00007ffff67051f0  <anonymous:00007ffff6609000>
+         00007ffff6705160  0000000080000001
+    #00  00007ffff6705168  000055555557de65  /system/bin/vold (_Z26cryptfs_isConvertibleToFBEv+85)
+    #01  00007ffff6705170  0000617461642f0a
+         ........  ........
+    #02  00007ffff67051a0  00007ffff67051d0  <anonymous:00007ffff6609000>
+         ........  ........
+    #03  00007ffff67051d0  0000000000000000
+         ........  ........
+    #04  00007ffff6705260  0000555555614e18  /system/bin/vold
+         ........  ........
+    #05  00007ffff67052a0  00007ffff640d700  [anon:libc_malloc]
+         ........  ........
+    #06  00007ffff6705400  00007ffff640d700  [anon:libc_malloc]
+         ........  ........
+    #07  00007ffff6705420  00007ffff640d700  [anon:libc_malloc]
+         ........  ........
+    #08  00007ffff6705450  00007ffff6418000  [anon:libc_malloc]
+         ........  ........
+    #09  00007ffff6705460  00007ffff6418000  [anon:libc_malloc]
+         ........  ........
+    #10  00007ffff67054c0  00007ffff7492780  /system/lib64/libc.so (_ZL15__pthread_startPv)
+         ........  ........
+    #11  00007ffff67054d0  00007ffff7492780  /system/lib64/libc.so (_ZL15__pthread_startPv)
+         00007ffff67054d8  00007ffff69014f0  <anonymous:00007ffff6805000>
+         00007ffff67054e0  0000000000000530
+         00007ffff67054e8  00007ffff7428a16  /system/lib64/libc.so (__bionic_clone+54)
+         00007ffff67054f0  00007ffff68034f0  <anonymous:00007ffff6707000>
+         00007ffff67054f8  00007ffff63ff4f0  <anonymous:00007ffff6303000>
+         00007ffff6705500  00000000ffffffff
+         00007ffff6705508  00007fff00000001
+         00007ffff6705510  00007ffff6608000  <anonymous:00007ffff6608000>
+         00007ffff6705518  00000000000fd4f0
+         00007ffff6705520  0000000000001000
+         00007ffff6705528  0000000000000000
+         00007ffff6705530  00007ffff74abe22  /system/lib64/libc.so (je_malloc+770)
+         00007ffff6705538  0000000000000001
+         00007ffff6705540  0000000000000003
+         00007ffff6705548  0000000000000000
+
+memory near rax:
+    000000000000ffe0 ---------------- ----------------  ................
+    000000000000fff0 ---------------- ----------------  ................
+    0000000000010000 ---------------- ----------------  ................
+    0000000000010010 ---------------- ----------------  ................
+    0000000000010020 ---------------- ----------------  ................
+    0000000000010030 ---------------- ----------------  ................
+    0000000000010040 ---------------- ----------------  ................
+    0000000000010050 ---------------- ----------------  ................
+    0000000000010060 ---------------- ----------------  ................
+    0000000000010070 ---------------- ----------------  ................
+    0000000000010080 ---------------- ----------------  ................
+    0000000000010090 ---------------- ----------------  ................
+    00000000000100a0 ---------------- ----------------  ................
+    00000000000100b0 ---------------- ----------------  ................
+    00000000000100c0 ---------------- ----------------  ................
+    00000000000100d0 ---------------- ----------------  ................
+
+memory near r9 ([anon:libc_malloc]):
+    00007ffff6a31418 00720064006e0061 002e00640069006f  a.n.d.r.o.i.d...
+    00007ffff6a31428 0049002e0073006f 0064006c006f0056  o.s...I.V.o.l.d.
+    00007ffff6a31438 0000000000000000 00007ffff6a8c8c0  ................
+    00007ffff6a31448 000003f000000216 00007ffff6a5d000  ................
+    00007ffff6a31458 0000001000000008 0000000000000000  ................
+    00007ffff6a31468 0000000000000000 0000000000000000  ................
+    00007ffff6a31478 0000000000000000 65767c6d646f282f  ......../(odm|ve
+    00007ffff6a31488 6d646f2f726f646e 65732f6374652f29  ndor/odm)/etc/se
+    00007ffff6a31498 646f2f78756e696c 5f70706165735f6d  linux/odm_seapp_
+    00007ffff6a314a8 73747865746e6f63 0000000000000000  contexts........
+    00007ffff6a314b8 0000000000000000 726f646e6576282f  ......../(vendor
+    00007ffff6a314c8 2f6d65747379737c 2f29726f646e6576  |system/vendor)/
+    00007ffff6a314d8 62697461706d6f63 616d5f7974696c69  compatibility_ma
+    00007ffff6a314e8 6c6d782e78697274 0000000000000000  trix.xml........
+    00007ffff6a314f8 0000000000000000 65767c6d646f282f  ......../(odm|ve
+    00007ffff6a31508 6d646f2f726f646e 65732f6374652f29  ndor/odm)/etc/se
+
+memory near r12 (/system/lib64/libcutils.so):
+    00007ffff73590f0 0000000000000000 0000000000000000  ................
+    00007ffff7359100 0000000000000000 0000000000000000  ................
+    00007ffff7359110 0000000000000001 0000000000000000  ................
+    00007ffff7359120 0000000000000000 0000000000000000  ................
+    00007ffff7359130 0000000000000000 0000000200000000  ................
+    00007ffff7359140 0000000000000000 0000000000000000  ................
+    00007ffff7359150 0000000000000000 0000000000000000  ................
+    00007ffff7359160 0000000000000000 0000000000000000  ................
+    00007ffff7359170 0000000000000000 0000000000000000  ................
+    00007ffff7359180 0000000000000000 0000000000000000  ................
+    00007ffff7359190 0000000000000000 0000000000000000  ................
+    00007ffff73591a0 0000000000000000 0000000000000000  ................
+    00007ffff73591b0 0000000000000000 0000000000000000  ................
+    00007ffff73591c0 0000000000000000 0000000000000000  ................
+    00007ffff73591d0 0000000000000000 0000000000000000  ................
+    00007ffff73591e0 0000000000000000 0000000000000000  ................
+
+memory near r13 (/system/lib64/libcutils.so):
+    00007ffff7359038 ffffffffffffffff 00000001ffffffff  ................
+    00007ffff7359048 00007ffff7352ef3 ffffffff00000006  ..5.............
+    00007ffff7359058 0000000000000000 ffffffff00000000  ................
+    00007ffff7359068 0000000000000000 0000000000000000  ................
+    00007ffff7359078 0000000000000000 0000000000000000  ................
+    00007ffff7359088 0000000000000001 0000000000000000  ................
+    00007ffff7359098 0000000000000001 0000000000000002  ................
+    00007ffff73590a8 0000000000000000 0000000000000000  ................
+    00007ffff73590b8 0000000000000000 0000000000000000  ................
+    00007ffff73590c8 0000000000000000 0000000000000000  ................
+    00007ffff73590d8 0000000000000000 0000000000000000  ................
+    00007ffff73590e8 0000000000000000 0000000000000000  ................
+    00007ffff73590f8 0000000000000000 0000000000000000  ................
+    00007ffff7359108 0000000000000000 0000000000000001  ................
+    00007ffff7359118 0000000000000000 0000000000000000  ................
+    00007ffff7359128 0000000000000000 0000000000000000  ................
+
+memory near r14 ([anon:libc_malloc]):
+    00007ffff6a46010 0000000000000000 0000000000000000  ................
+    00007ffff6a46020 0000000000000000 0000000000000000  ................
+    00007ffff6a46030 0000000100000000 0000000000000000  ................
+    00007ffff6a46040 0000000000000000 0000000000000000  ................
+    00007ffff6a46050 0000000000000000 746d666e00000000  ............nfmt
+    00007ffff6a46060 00007ffff641f080 00007ffff6a46068  ..A.....h`......
+    00007ffff6a46070 00007ffff6a46068 0000000000000000  h`..............
+    00007ffff6a46080 00007ffff6a46080 00007ffff6a46080  .`.......`......
+    00007ffff6a46090 0000000000000000 00007ffff6a46098  .........`......
+    00007ffff6a460a0 00007ffff6a46098 0000000000000000  .`..............
+    00007ffff6a460b0 00007ffff6a460b0 00007ffff6a460b0  .`.......`......
+    00007ffff6a460c0 0000000000000000 00007ffff6a2c110  ................
+    00007ffff6a460d0 0000000000000002 00007ffff641d0c0  ..........A.....
+    00007ffff6a460e0 0000000000000001 76090a733f800000  ...........?s..v
+    00007ffff6a460f0 00007ffff641e000 0000000000000002  ..A.............
+    00007ffff6a46100 00007ffff641d0e0 0000000000000001  ..A.............
+
+memory near r15 (<anonymous:00007ffff6609000>):
+    00007ffff67051d0 0000000000000000 00007ffff6a2d018  ................
+    00007ffff67051e0 000000000000002c 00007ffff7b292aa  ,...............
+    00007ffff67051f0 0000000000000000 00007ffff6902000  ......... ......
+    00007ffff6705200 0000000000000000 00007ffff6705370  ........pSp.....
+    00007ffff6705210 0000000000000000 00007ffff7b0db84  ................
+    00007ffff6705220 00007ffff6a41140 0000000000000000  @...............
+    00007ffff6705230 00007ffff6902000 00007ffff6a9fcf8  . ..............
+    00007ffff6705240 0000000000000000 0000000000000010  ................
+    00007ffff6705250 0000000000000029 00007ffff7afa47f  )...............
+    00007ffff6705260 0000555555614e18 00007ffff640d700  .NaUUU....@.....
+    00007ffff6705270 00007ffff6705460 00007ffff6705480  `Tp......Tp.....
+    00007ffff6705280 0000000000000000 00000000ffffffb6  ................
+    00007ffff6705290 0000000000000000 00007ffff7b05931  ........1Y......
+    00007ffff67052a0 00007ffff640d700 00007ffff6a9eec0  ..@.............
+    00007ffff67052b0 00007ffff6a9fcf8 0000001000000029  ........).......
+    00007ffff67052c0 000003e8000005fb 000000000000002c  ........,.......
+
+memory near rsi (<anonymous:00007ffff6609000>):
+    00007ffff6705150 00007ffff6a46034 00007ffff67051f0  4`.......Qp.....
+    00007ffff6705160 0000000080000001 000055555557de65  ........e.WUUU..
+    00007ffff6705170 0000617461642f0a 0000000000000000  ./data..........
+    00007ffff6705180 0000000000000000 00007ffff7828596  ................
+    00007ffff6705190 00007ffff67051d0 0000555555570ad8  .Qp.......WUUU..
+    00007ffff67051a0 00007ffff67051d0 00007ffff6705308  .Qp......Sp.....
+    00007ffff67051b0 00007ffff6705370 00007ffff6705308  pSp......Sp.....
+    00007ffff67051c0 00007ffff6a9fcf0 00005555555f753e  ........>u_UUU..
+    00007ffff67051d0 0000000000000000 00007ffff6a2d018  ................
+    00007ffff67051e0 000000000000002c 00007ffff7b292aa  ,...............
+    00007ffff67051f0 0000000000000000 00007ffff6902000  ......... ......
+    00007ffff6705200 0000000000000000 00007ffff6705370  ........pSp.....
+    00007ffff6705210 0000000000000000 00007ffff7b0db84  ................
+    00007ffff6705220 00007ffff6a41140 0000000000000000  @...............
+    00007ffff6705230 00007ffff6902000 00007ffff6a9fcf8  . ..............
+    00007ffff6705240 0000000000000000 0000000000000010  ................
+
+memory near rbp:
+    000000007fffffe0 ---------------- ----------------  ................
+    000000007ffffff0 ---------------- ----------------  ................
+    0000000080000000 ---------------- ----------------  ................
+    0000000080000010 ---------------- ----------------  ................
+    0000000080000020 ---------------- ----------------  ................
+    0000000080000030 ---------------- ----------------  ................
+    0000000080000040 ---------------- ----------------  ................
+    0000000080000050 ---------------- ----------------  ................
+    0000000080000060 ---------------- ----------------  ................
+    0000000080000070 ---------------- ----------------  ................
+    0000000080000080 ---------------- ----------------  ................
+    0000000080000090 ---------------- ----------------  ................
+    00000000800000a0 ---------------- ----------------  ................
+    00000000800000b0 ---------------- ----------------  ................
+    00000000800000c0 ---------------- ----------------  ................
+    00000000800000d0 ---------------- ----------------  ................
+
+memory near rsp (<anonymous:00007ffff6609000>):
+    00007ffff6705148 00007ffff7359058 00007ffff6a46034  X.5.....4`......
+    00007ffff6705158 00007ffff67051f0 0000000080000001  .Qp.............
+    00007ffff6705168 000055555557de65 0000617461642f0a  e.WUUU.../data..
+    00007ffff6705178 0000000000000000 0000000000000000  ................
+    00007ffff6705188 00007ffff7828596 00007ffff67051d0  .........Qp.....
+    00007ffff6705198 0000555555570ad8 00007ffff67051d0  ..WUUU...Qp.....
+    00007ffff67051a8 00007ffff6705308 00007ffff6705370  .Sp.....pSp.....
+    00007ffff67051b8 00007ffff6705308 00007ffff6a9fcf0  .Sp.............
+    00007ffff67051c8 00005555555f753e 0000000000000000  >u_UUU..........
+    00007ffff67051d8 00007ffff6a2d018 000000000000002c  ........,.......
+    00007ffff67051e8 00007ffff7b292aa 0000000000000000  ................
+    00007ffff67051f8 00007ffff6902000 0000000000000000  . ..............
+    00007ffff6705208 00007ffff6705370 0000000000000000  pSp.............
+    00007ffff6705218 00007ffff7b0db84 00007ffff6a41140  ........@.......
+    00007ffff6705228 0000000000000000 00007ffff6902000  ......... ......
+    00007ffff6705238 00007ffff6a9fcf8 0000000000000000  ................
+
+memory near rip (/system/bin/vold):
+    00005555555d9910 f883c8450f490002 00028cb8058d4803  ..I.E....H......
+    00005555555d9920 c3028948c1450f48 0000000000841f0f  H.E.H...........
+    00005555555d9930 28472300010000b8 00000000801f0fc3  .....#G(........
+    00005555555d9940 28472300000800b8 00000000801f0fc3  .....#G(........
+    00005555555d9950 28472300001000b8 00000000801f0fc3  .....#G(........
+    00005555555d9960 28472300400000b8 00000000801f0fc3  ...@.#G(........
+    00005555555d9970 28472308000000b8 00000000801f0fc3  .....#G(........
+    00005555555d9980 4155415641574155 894458ec83485354  UAWAVAUATSH..XD.
+    00005555555d9990 49d68949cf8949c5 0f2b74f6854df589  .I..I..I..M..t+.
+    00005555555d99a0 413046110f41c057 46110f414046110f  W.A..F0A..F@A..F
+    00005555555d99b0 0f411046110f4120 00005046c7490611   A..F.A...I.FP..
+    00005555555d99c0 ffff3046c7490000 850874ff854dffff  ..I.F0....M..t..
+    00005555555d99d0 480007c641047eed 8d48000286fa358d  .~.A...H.5....H.
+    00005555555d99e0 fff8c508e8502454 2774e4854dc48949  T$P.....I..M..t'
+    00005555555d99f0 4024448948c56348 2444894808458d49  Hc.H.D$@I.E.H.D$
+    00005555555d9a00 1824448948c03148 74894c28247c894c  H1.H.D$.L.|$(L.t
+
+memory map (241 entries):
+--->Fault address falls at 00000000'00000028 before any mapped regions
+    00005555'55554000-00005555'55613fff r-x         0     c0000  /system/bin/vold (BuildId: 3d03f7730c2872f4ebada24e460e2060)
+    00005555'55614000-00005555'55617fff r--     bf000      4000  /system/bin/vold
+    00005555'55618000-00005555'55618fff rw-     c3000      1000  /system/bin/vold
+    00007fff'f6302000-00007fff'f6302fff ---         0      1000
+    00007fff'f6303000-00007fff'f63fffff rw-         0     fd000
+    00007fff'f6400000-00007fff'f65fffff rw-         0    200000  [anon:libc_malloc]
+    00007fff'f6608000-00007fff'f6608fff ---         0      1000
+    00007fff'f6609000-00007fff'f6705fff rw-         0     fd000
+    00007fff'f6706000-00007fff'f6706fff ---         0      1000
+    00007fff'f6707000-00007fff'f6803fff rw-         0     fd000
+    00007fff'f6804000-00007fff'f6804fff ---         0      1000
+    00007fff'f6805000-00007fff'f6901fff rw-         0     fd000
+    00007fff'f6a00000-00007fff'f6dfffff rw-         0    400000  [anon:libc_malloc]
+    00007fff'f6eb6000-00007fff'f6eb7fff r-x         0      2000  /system/lib64/libnetd_client.so (BuildId: f6aaf64de8b0b4dd8bd9c007198a72f6)
+    00007fff'f6eb8000-00007fff'f6eb8fff ---         0      1000
+    00007fff'f6eb9000-00007fff'f6eb9fff r--      2000      1000  /system/lib64/libnetd_client.so
+    00007fff'f6eba000-00007fff'f6ebafff rw-      3000      1000  /system/lib64/libnetd_client.so
+    00007fff'f6ec2000-00007fff'f6ee6fff r-x         0     25000  /system/lib64/libhidlbase.so (BuildId: fa93a5fc3416a4e5382f1c786f7efcc3)
+    00007fff'f6ee7000-00007fff'f6ee8fff r--     24000      2000  /system/lib64/libhidlbase.so
+    00007fff'f6ee9000-00007fff'f6ee9fff rw-     26000      1000  /system/lib64/libhidlbase.so
+    00007fff'f6f07000-00007fff'f6f2afff r-x         0     24000  /system/lib64/libpcre2.so (BuildId: 2dfc3fbb7d6a4a1a26f20df470333247)
+    00007fff'f6f2b000-00007fff'f6f2bfff r--     23000      1000  /system/lib64/libpcre2.so
+    00007fff'f6f2c000-00007fff'f6f2cfff rw-     24000      1000  /system/lib64/libpcre2.so
+    00007fff'f6f50000-00007fff'f6f79fff r-x         0     2a000  /system/lib64/android.hardware.keymaster@3.0.so (BuildId: 36ebdc56abd204c892e90c0bacbcea3c) (load bias 0x2000)
+    00007fff'f6f7a000-00007fff'f6f7cfff r--     29000      3000  /system/lib64/android.hardware.keymaster@3.0.so (load bias 0x2000)
+    00007fff'f6f7d000-00007fff'f6f7dfff rw-     2c000      1000  /system/lib64/android.hardware.keymaster@3.0.so (load bias 0x2000)
+    00007fff'f6f81000-00007fff'f70bafff r-x         0    13a000  /system/lib64/libcrypto.so (BuildId: afc82fdf499c7edd9cb2bd9d7f535576)
+    00007fff'f70bb000-00007fff'f70bbfff ---         0      1000
+    00007fff'f70bc000-00007fff'f70ccfff r--    13a000     11000  /system/lib64/libcrypto.so
+    00007fff'f70cd000-00007fff'f70cdfff rw-    14b000      1000  /system/lib64/libcrypto.so
+    00007fff'f70ce000-00007fff'f70cefff rw-         0      1000  [anon:.bss]
+    00007fff'f7118000-00007fff'f7118fff r-x         0      1000  /system/lib64/libcrypto_utils.so (BuildId: 2ce474f3b75577d98c82f34eb74db566)
+    00007fff'f7119000-00007fff'f7119fff ---         0      1000
+    00007fff'f711a000-00007fff'f711afff r--      1000      1000  /system/lib64/libcrypto_utils.so
+    00007fff'f711b000-00007fff'f711bfff rw-      2000      1000  /system/lib64/libcrypto_utils.so
+    00007fff'f7167000-00007fff'f7169fff r-x         0      3000  /system/lib64/libpackagelistparser.so (BuildId: 217485a4bf486ecb9c4e1174de9443fb)
+    00007fff'f716a000-00007fff'f716afff r--      2000      1000  /system/lib64/libpackagelistparser.so
+    00007fff'f716b000-00007fff'f716bfff rw-      3000      1000  /system/lib64/libpackagelistparser.so
+    00007fff'f71b9000-00007fff'f71bafff r-x         0      2000  /system/lib64/libhardware.so (BuildId: 3311e6ecbe577dfee89781e953c21988)
+    00007fff'f71bb000-00007fff'f71bbfff r--      1000      1000  /system/lib64/libhardware.so
+    00007fff'f71bc000-00007fff'f71bcfff rw-      2000      1000  /system/lib64/libhardware.so
+    00007fff'f71e6000-00007fff'f71fafff r-x         0     15000  /system/lib64/libselinux.so (BuildId: 97082a35ffc990e0762a0cbaa5390153)
+    00007fff'f71fb000-00007fff'f71fbfff ---         0      1000
+    00007fff'f71fc000-00007fff'f71fcfff r--     15000      1000  /system/lib64/libselinux.so
+    00007fff'f71fd000-00007fff'f71fdfff rw-     16000      1000  /system/lib64/libselinux.so
+    00007fff'f71fe000-00007fff'f71fefff rw-         0      1000  [anon:.bss]
+    00007fff'f7209000-00007fff'f7230fff r-x         0     28000  /system/lib64/libhwbinder.so (BuildId: 34fe077604da575131326a1ee6b1792e) (load bias 0x1000)
+    00007fff'f7231000-00007fff'f7231fff ---         0      1000
+    00007fff'f7232000-00007fff'f7233fff r--     28000      2000  /system/lib64/libhwbinder.so (load bias 0x1000)
+    00007fff'f7234000-00007fff'f7234fff rw-     2a000      1000  /system/lib64/libhwbinder.so (load bias 0x1000)
+    00007fff'f7277000-00007fff'f727bfff r-x         0      5000  /system/lib64/libext4_utils.so (BuildId: f4cb0fda381619bb88f46096c068cee8)
+    00007fff'f727c000-00007fff'f727cfff r--      4000      1000  /system/lib64/libext4_utils.so
+    00007fff'f727d000-00007fff'f727dfff rw-      5000      1000  /system/lib64/libext4_utils.so
+    00007fff'f728f000-00007fff'f72b4fff r-x         0     26000  /system/lib64/libkeymaster4support.so (BuildId: 2f947c7b5f74d58f7e1a11eabc8cb8da) (load bias 0x2000)
+    00007fff'f72b5000-00007fff'f72b7fff r--     25000      3000  /system/lib64/libkeymaster4support.so (load bias 0x2000)
+    00007fff'f72b8000-00007fff'f72b8fff rw-     28000      1000  /system/lib64/libkeymaster4support.so (load bias 0x2000)
+    00007fff'f72e2000-00007fff'f72fdfff r-x         0     1c000  /system/lib64/libunwind.so (BuildId: dee86cca10cc6ba8ade53e524b9bde66)
+    00007fff'f72fe000-00007fff'f72fefff ---         0      1000
+    00007fff'f72ff000-00007fff'f72fffff r--     1c000      1000  /system/lib64/libunwind.so
+    00007fff'f7300000-00007fff'f7300fff rw-     1d000      1000  /system/lib64/libunwind.so
+    00007fff'f7301000-00007fff'f7329fff rw-         0     29000  [anon:.bss]
+    00007fff'f7343000-00007fff'f7356fff r-x         0     14000  /system/lib64/libcutils.so (BuildId: da21953c5eb669fc0bd783f623f0f705)
+    00007fff'f7357000-00007fff'f7358fff r--     13000      2000  /system/lib64/libcutils.so
+    00007fff'f7359000-00007fff'f7359fff rw-     15000      1000  /system/lib64/libcutils.so
+    00007fff'f7380000-00007fff'f73bcfff r-x         0     3d000  /system/lib64/libdexfile.so (BuildId: 16b0ebd5f413d3b680d5aaca91be5421) (load bias 0x2000)
+    00007fff'f73bd000-00007fff'f73befff r--     3c000      2000  /system/lib64/libdexfile.so (load bias 0x2000)
+    00007fff'f73bf000-00007fff'f73bffff rw-     3e000      1000  /system/lib64/libdexfile.so (load bias 0x2000)
+    00007fff'f73c1000-00007fff'f73c4fff r-x         0      4000  /system/lib64/libdiskconfig.so (BuildId: d6f0ecb3162fb26f2f218e3626274077)
+    00007fff'f73c5000-00007fff'f73c5fff r--      3000      1000  /system/lib64/libdiskconfig.so
+    00007fff'f73c6000-00007fff'f73c6fff rw-      4000      1000  /system/lib64/libdiskconfig.so
+    00007fff'f7402000-00007fff'f74e6fff r-x         0     e5000  /system/lib64/libc.so (BuildId: 35eed6275254f2b72d65f93ffad87500)
+    00007fff'f74e7000-00007fff'f74e7fff ---         0      1000
+    00007fff'f74e8000-00007fff'f74edfff r--     e5000      6000  /system/lib64/libc.so
+    00007fff'f74ee000-00007fff'f74effff rw-     eb000      2000  /system/lib64/libc.so
+    00007fff'f74f0000-00007fff'f74f0fff rw-         0      1000  [anon:.bss]
+    00007fff'f74f1000-00007fff'f74f1fff r--         0      1000  [anon:.bss]
+    00007fff'f74f2000-00007fff'f74f9fff rw-         0      8000  [anon:.bss]
+    00007fff'f7502000-00007fff'f7532fff r-x         0     31000  /system/lib64/android.hardware.keymaster@4.0.so (BuildId: f38d04a9b8bde74d50438f938bff6504) (load bias 0x3000)
+    00007fff'f7533000-00007fff'f7533fff ---         0      1000
+    00007fff'f7534000-00007fff'f7536fff r--     31000      3000  /system/lib64/android.hardware.keymaster@4.0.so (load bias 0x3000)
+    00007fff'f7537000-00007fff'f7537fff rw-     34000      1000  /system/lib64/android.hardware.keymaster@4.0.so (load bias 0x3000)
+    00007fff'f7561000-00007fff'f7563fff r-x         0      3000  /system/lib64/libext2_uuid.so (BuildId: 1661005db51217262c4d6577ae142607)
+    00007fff'f7564000-00007fff'f7564fff r--      2000      1000  /system/lib64/libext2_uuid.so
+    00007fff'f7565000-00007fff'f7565fff rw-      3000      1000  /system/lib64/libext2_uuid.so
+    00007fff'f7583000-00007fff'f7585fff r-x         0      3000  /system/lib64/liblogwrap.so (BuildId: 8e5b39d266efce17da36f4f5ca7f31c7)
+    00007fff'f7586000-00007fff'f7586fff r--      2000      1000  /system/lib64/liblogwrap.so
+    00007fff'f7587000-00007fff'f7587fff rw-      3000      1000  /system/lib64/liblogwrap.so
+    00007fff'f75d2000-00007fff'f75e9fff r-x         0     18000  /system/lib64/libz.so (BuildId: b610145cb182e84ecf0f4a58c5968f2a)
+    00007fff'f75ea000-00007fff'f75eafff r--     17000      1000  /system/lib64/libz.so
+    00007fff'f75eb000-00007fff'f75ebfff rw-     18000      1000  /system/lib64/libz.so
+    00007fff'f760f000-00007fff'f7625fff r-x         0     17000  /system/lib64/liblog.so (BuildId: 9e55ec580bfd4b6ed9505de1ceb0cace)
+    00007fff'f7626000-00007fff'f7626fff ---         0      1000
+    00007fff'f7627000-00007fff'f7627fff r--     17000      1000  /system/lib64/liblog.so
+    00007fff'f7628000-00007fff'f7628fff rw-     18000      1000  /system/lib64/liblog.so
+    00007fff'f7658000-00007fff'f76a4fff r-x         0     4d000  /system/lib64/libm.so (BuildId: dff7cff5d95d79a045d7f485d5c8d339)
+    00007fff'f76a5000-00007fff'f76a5fff ---         0      1000
+    00007fff'f76a6000-00007fff'f76a6fff r--     4d000      1000  /system/lib64/libm.so
+    00007fff'f76a7000-00007fff'f76a7fff rw-     4e000      1000  /system/lib64/libm.so
+    00007fff'f76c5000-00007fff'f7730fff r-x         0     6c000  /system/lib64/libhidltransport.so (BuildId: a95b1089d1aa7270ce85d131041bfe0e) (load bias 0xa000)
+    00007fff'f7731000-00007fff'f7738fff r--     6b000      8000  /system/lib64/libhidltransport.so (load bias 0xa000)
+    00007fff'f7739000-00007fff'f7739fff rw-     73000      1000  /system/lib64/libhidltransport.so (load bias 0xa000)
+    00007fff'f7742000-00007fff'f7751fff r-x         0     10000  /system/lib64/libbase.so (BuildId: bcfc30fa82b966b253c41aade5b59ee6)
+    00007fff'f7752000-00007fff'f7752fff r--      f000      1000  /system/lib64/libbase.so
+    00007fff'f7753000-00007fff'f7753fff rw-     10000      1000  /system/lib64/libbase.so
+    00007fff'f778c000-00007fff'f785dfff r-x         0     d2000  /system/lib64/libc++.so (BuildId: 18a9ba0aa1863ffbdcffee510e77b1f6) (load bias 0xd000)
+    00007fff'f785e000-00007fff'f7867fff r--     d1000      a000  /system/lib64/libc++.so (load bias 0xd000)
+    00007fff'f7868000-00007fff'f7868fff rw-     db000      1000  /system/lib64/libc++.so (load bias 0xd000)
+    00007fff'f7869000-00007fff'f786bfff rw-         0      3000  [anon:.bss]
+    00007fff'f788e000-00007fff'f788efff r-x         0      1000  /system/lib64/libkeyutils.so (BuildId: 5c7e9e3ce9b00cad2429fba01f3b7c65)
+    00007fff'f788f000-00007fff'f788ffff r--         0      1000  /system/lib64/libkeyutils.so (BuildId: 5c7e9e3ce9b00cad2429fba01f3b7c65)
+    00007fff'f7890000-00007fff'f7890fff rw-      1000      1000  /system/lib64/libkeyutils.so
+    00007fff'f78f3000-00007fff'f78f8fff r-x         0      6000  /system/lib64/libsparse.so (BuildId: 6d4f2193dcf208a37b618f1d73a3684d)
+    00007fff'f78f9000-00007fff'f78f9fff ---         0      1000
+    00007fff'f78fa000-00007fff'f78fafff r--      6000      1000  /system/lib64/libsparse.so
+    00007fff'f78fb000-00007fff'f78fbfff rw-      7000      1000  /system/lib64/libsparse.so
+    00007fff'f7918000-00007fff'f7932fff r-x         0     1b000  /system/lib64/libutils.so (BuildId: fcaf1cab06a2903ed55103e43b0f8d28)
+    00007fff'f7933000-00007fff'f7933fff ---         0      1000
+    00007fff'f7934000-00007fff'f7934fff r--     1b000      1000  /system/lib64/libutils.so
+    00007fff'f7935000-00007fff'f7935fff rw-     1c000      1000  /system/lib64/libutils.so
+    00007fff'f7941000-00007fff'f7944fff r-x         0      4000  /system/lib64/libf2fs_sparseblock.so (BuildId: d447dd0fc54f7603fbc2f9bc6f1a6071)
+    00007fff'f7945000-00007fff'f7945fff r--      3000      1000  /system/lib64/libf2fs_sparseblock.so
+    00007fff'f7946000-00007fff'f7946fff rw-      4000      1000  /system/lib64/libf2fs_sparseblock.so
+    00007fff'f7981000-00007fff'f79a5fff r-x         0     25000  /system/lib64/liblzma.so (BuildId: 5bd0355ea70e6d059833b4d8d394d162)
+    00007fff'f79a6000-00007fff'f79a6fff ---         0      1000
+    00007fff'f79a7000-00007fff'f79a7fff r--     25000      1000  /system/lib64/liblzma.so
+    00007fff'f79a8000-00007fff'f79a8fff rw-     26000      1000  /system/lib64/liblzma.so
+    00007fff'f79a9000-00007fff'f79aefff rw-         0      6000  [anon:.bss]
+    00007fff'f79d6000-00007fff'f79d7fff r-x         0      2000  /system/lib64/libhardware_legacy.so (BuildId: 620bcd27973b39ea00002618dd3f99db)
+    00007fff'f79d8000-00007fff'f79d8fff r--      1000      1000  /system/lib64/libhardware_legacy.so
+    00007fff'f79d9000-00007fff'f79d9fff rw-      2000      1000  /system/lib64/libhardware_legacy.so
+    00007fff'f7a37000-00007fff'f7a38fff r-x         0      2000  /system/lib64/libdl.so (BuildId: 32a6676d68702632466ce517d9c8e3df)
+    00007fff'f7a39000-00007fff'f7a39fff r--      1000      1000  /system/lib64/libdl.so
+    00007fff'f7a3a000-00007fff'f7a3afff rw-         0      1000  [anon:.bss]
+    00007fff'f7a60000-00007fff'f7aacfff r-x         0     4d000  /system/lib64/libunwindstack.so (BuildId: e8bf19d7e0f27fe87d3d3009d4540a58) (load bias 0x5000)
+    00007fff'f7aad000-00007fff'f7aadfff ---         0      1000
+    00007fff'f7aae000-00007fff'f7ab4fff r--     4d000      7000  /system/lib64/libunwindstack.so (load bias 0x5000)
+    00007fff'f7ab5000-00007fff'f7ab5fff rw-     54000      1000  /system/lib64/libunwindstack.so (load bias 0x5000)
+    00007fff'f7ac0000-00007fff'f7b45fff r-x         0     86000  /system/lib64/libbinder.so (BuildId: 417f01be2d81d165c9f1630324aab607) (load bias 0x15000)
+    00007fff'f7b46000-00007fff'f7b46fff ---         0      1000
+    00007fff'f7b47000-00007fff'f7b56fff r--     86000     10000  /system/lib64/libbinder.so (load bias 0x15000)
+    00007fff'f7b57000-00007fff'f7b57fff rw-     96000      1000  /system/lib64/libbinder.so (load bias 0x15000)
+    00007fff'f7b62000-00007fff'f7b81fff r--         0     20000  /dev/__properties__/u:object_r:restorecon_prop:s0
+    00007fff'f7b82000-00007fff'f7b86fff r-x         0      5000  /system/lib64/libutilscallstack.so (BuildId: 9c3b168c90bffcfe12f77bee3ecec63f)
+    00007fff'f7b87000-00007fff'f7b87fff ---         0      1000
+    00007fff'f7b88000-00007fff'f7b88fff r--      5000      1000  /system/lib64/libutilscallstack.so
+    00007fff'f7b89000-00007fff'f7b89fff rw-      6000      1000  /system/lib64/libutilscallstack.so
+    00007fff'f7b9f000-00007fff'f7bbefff r--         0     20000  /dev/__properties__/u:object_r:exported_vold_prop:s0
+    00007fff'f7bbf000-00007fff'f7bdefff r--         0     20000  /dev/__properties__/u:object_r:system_prop:s0
+    00007fff'f7bdf000-00007fff'f7be8fff r-x         0      a000  /system/lib64/libsysutils.so (BuildId: 9f0406b0e687f8dfd59d19f872379af3)
+    00007fff'f7be9000-00007fff'f7be9fff r--      9000      1000  /system/lib64/libsysutils.so
+    00007fff'f7bea000-00007fff'f7beafff rw-      a000      1000  /system/lib64/libsysutils.so
+    00007fff'f7bf8000-00007fff'f7c17fff r--         0     20000  /dev/__properties__/u:object_r:vold_prop:s0
+    00007fff'f7c18000-00007fff'f7c37fff r--         0     20000  /dev/__properties__/u:object_r:log_tag_prop:s0
+    00007fff'f7c38000-00007fff'f7c38fff r-x         0      1000  /system/lib64/libvndksupport.so (BuildId: d13bbf485338ced3ef12c9abe0fe8c9e)
+    00007fff'f7c39000-00007fff'f7c39fff r--         0      1000  /system/lib64/libvndksupport.so (BuildId: d13bbf485338ced3ef12c9abe0fe8c9e)
+    00007fff'f7c3a000-00007fff'f7c3afff rw-      1000      1000  /system/lib64/libvndksupport.so
+    00007fff'f7c4d000-00007fff'f7c66fff r-x         0     1a000  /system/lib64/libbacktrace.so (BuildId: e036591638f427d844c99ae2c17a7981)
+    00007fff'f7c67000-00007fff'f7c67fff ---         0      1000
+    00007fff'f7c68000-00007fff'f7c68fff r--     1a000      1000  /system/lib64/libbacktrace.so
+    00007fff'f7c69000-00007fff'f7c69fff rw-     1b000      1000  /system/lib64/libbacktrace.so
+    00007fff'f7c82000-00007fff'f7c82fff rw-         0      1000  [anon:linker_alloc]
+    00007fff'f7c8d000-00007fff'f7c8dfff rw-         0      1000  [anon:linker_alloc]
+    00007fff'f7c9b000-00007fff'f7cbafff r--         0     20000  /dev/__properties__/u:object_r:logd_prop:s0
+    00007fff'f7cbb000-00007fff'f7cbbfff rw-         0      1000  [anon:linker_alloc_vector]
+    00007fff'f7cbc000-00007fff'f7cbcfff rw-         0      1000  [anon:linker_alloc_small_objects]
+    00007fff'f7cbe000-00007fff'f7cbefff r--         0      1000  [anon:linker_alloc]
+    00007fff'f7ccd000-00007fff'f7ccdfff r--         0      1000  [anon:linker_alloc]
+    00007fff'f7ce1000-00007fff'f7ce1fff rw-         0      1000  [anon:linker_alloc]
+    00007fff'f7cf0000-00007fff'f7cf0fff rw-         0      1000  [anon:linker_alloc_vector]
+    00007fff'f7cf2000-00007fff'f7cf2fff r--         0      1000  [anon:linker_alloc]
+    00007fff'f7d12000-00007fff'f7d31fff r--         0     20000  /dev/__properties__/u:object_r:default_prop:s0
+    00007fff'f7d32000-00007fff'f7d51fff r--         0     20000  /dev/__properties__/u:object_r:exported2_default_prop:s0
+    00007fff'f7d52000-00007fff'f7d52fff r--         0      1000  [anon:linker_alloc]
+    00007fff'f7d53000-00007fff'f7d53fff rw-         0      1000  [anon:linker_alloc]
+    00007fff'f7d6b000-00007fff'f7d6bfff r--         0      1000  [anon:linker_alloc]
+    00007fff'f7d78000-00007fff'f7d78fff rw-         0      1000  [anon:linker_alloc_small_objects]
+    00007fff'f7d92000-00007fff'f7d92fff r--         0      1000  [anon:linker_alloc]
+    00007fff'f7d98000-00007fff'f7d98fff rw-         0      1000  [anon:linker_alloc]
+    00007fff'f7db8000-00007fff'f7db8fff rw-         0      1000  [anon:linker_alloc_vector]
+    00007fff'f7dbf000-00007fff'f7dbffff r--         0      1000  [anon:linker_alloc]
+    00007fff'f7dc6000-00007fff'f7dc6fff ---         0      1000
+    00007fff'f7dc7000-00007fff'f7dcafff rw-         0      4000  [anon:thread signal stack]
+    00007fff'f7dcb000-00007fff'f7dcbfff ---         0      1000
+    00007fff'f7dcc000-00007fff'f7dcefff rw-         0      3000
+    00007fff'f7dcf000-00007fff'f7dcffff ---         0      1000
+    00007fff'f7dd0000-00007fff'f7dd0fff rw-         0      1000  [anon:linker_alloc]
+    00007fff'f7dd1000-00007fff'f7dd1fff ---         0      1000
+    00007fff'f7dd2000-00007fff'f7dd5fff rw-         0      4000  [anon:thread signal stack]
+    00007fff'f7dd6000-00007fff'f7dd6fff ---         0      1000
+    00007fff'f7dd7000-00007fff'f7ddafff rw-         0      4000  [anon:thread signal stack]
+    00007fff'f7ddb000-00007fff'f7ddbfff ---         0      1000
+    00007fff'f7ddc000-00007fff'f7ddefff rw-         0      3000
+    00007fff'f7ddf000-00007fff'f7de0fff ---         0      2000
+    00007fff'f7de1000-00007fff'f7de3fff rw-         0      3000
+    00007fff'f7de4000-00007fff'f7de4fff ---         0      1000
+    00007fff'f7de5000-00007fff'f7de5fff ---         0      1000
+    00007fff'f7de6000-00007fff'f7de9fff rw-         0      4000  [anon:thread signal stack]
+    00007fff'f7dea000-00007fff'f7deafff ---         0      1000
+    00007fff'f7deb000-00007fff'f7dedfff rw-         0      3000
+    00007fff'f7dee000-00007fff'f7deefff ---         0      1000
+    00007fff'f7def000-00007fff'f7deffff r--         0      1000  [anon:atexit handlers]
+    00007fff'f7df0000-00007fff'f7e0ffff r--         0     20000  /dev/__properties__/properties_serial
+    00007fff'f7e10000-00007fff'f7e10fff rw-         0      1000  [anon:System property context nodes]
+    00007fff'f7e11000-00007fff'f7e17fff r--         0      7000  /dev/__properties__/property_info
+    00007fff'f7e18000-00007fff'f7e18fff rw-         0      1000  [anon:linker_alloc]
+    00007fff'f7e19000-00007fff'f7e19fff rw-         0      1000  [anon:linker_alloc_vector]
+    00007fff'f7e1a000-00007fff'f7e1afff rw-         0      1000  [anon:linker_alloc_small_objects]
+    00007fff'f7e1c000-00007fff'f7e3bfff r--         0     20000  /dev/__properties__/u:object_r:exported_default_prop:s0
+    00007fff'f7e3c000-00007fff'f7e3cfff rw-         0      1000  [anon:arc4random data]
+    00007fff'f7e3d000-00007fff'f7e3dfff rw-         0      1000  [anon:linker_alloc_vector]
+    00007fff'f7e3e000-00007fff'f7e3efff rw-         0      1000  [anon:linker_alloc_small_objects]
+    00007fff'f7e3f000-00007fff'f7e3ffff r--         0      1000  [anon:linker_alloc]
+    00007fff'f7e40000-00007fff'f7e5ffff r--         0     20000  /dev/__properties__/u:object_r:debug_prop:s0
+    00007fff'f7e60000-00007fff'f7e60fff ---         0      1000
+    00007fff'f7e61000-00007fff'f7e61fff rw-         0      1000
+    00007fff'f7e62000-00007fff'f7e62fff ---         0      1000
+    00007fff'f7e63000-00007fff'f7e82fff r--         0     20000  /dev/__properties__/properties_serial
+    00007fff'f7e83000-00007fff'f7e83fff rw-         0      1000  [anon:System property context nodes]
+    00007fff'f7e84000-00007fff'f7e8afff r--         0      7000  /dev/__properties__/property_info
+    00007fff'f7e8b000-00007fff'f7e8bfff r--         0      1000  [anon:linker_alloc]
+    00007fff'f7e8c000-00007fff'f7e8cfff rw-         0      1000  [anon:linker_alloc_vector]
+    00007fff'f7e8d000-00007fff'f7e8dfff rw-         0      1000  [anon:linker_alloc_small_objects]
+    00007fff'f7e8e000-00007fff'f7e8efff rw-         0      1000  [anon:linker_alloc_vector]
+    00007fff'f7e8f000-00007fff'f7e8ffff rw-         0      1000  [anon:linker_alloc_small_objects]
+    00007fff'f7e90000-00007fff'f7e90fff r--         0      1000  [anon:atexit handlers]
+    00007fff'f7e91000-00007fff'f7e91fff ---         0      1000
+    00007fff'f7e92000-00007fff'f7e95fff rw-         0      4000  [anon:thread signal stack]
+    00007fff'f7e96000-00007fff'f7e96fff rw-         0      1000  [anon:arc4random data]
+    00007fff'f7e97000-00007fff'f7e97fff ---         0      1000
+    00007fff'f7e98000-00007fff'f7e9afff rw-         0      3000
+    00007fff'f7e9b000-00007fff'f7e9bfff ---         0      1000
+    00007fff'f7e9c000-00007fff'f7e9efff r--         0      3000  [vvar]
+    00007fff'f7e9f000-00007fff'f7ea0fff r-x         0      2000  [vdso] (BuildId: 8cace597c0f81734f84bed1084dee462fd6350a6)
+    00007fff'f7ea1000-00007fff'f7fe6fff r-x         0    146000  /system/bin/linker64 (BuildId: d701027ca0200577e3de643093054a65)
+    00007fff'f7fe7000-00007fff'f7ff2fff r--    145000      c000  /system/bin/linker64
+    00007fff'f7ff3000-00007fff'f7ff3fff rw-    151000      1000  /system/bin/linker64
+    00007fff'f7ff4000-00007fff'f7ff6fff rw-         0      3000
+    00007fff'f7ff7000-00007fff'f7ff7fff r--         0      1000
+    00007fff'f7ff8000-00007fff'f7ffefff rw-         0      7000
+    00007fff'fffde000-00007fff'ffffefff rw-         0     21000  [stack]
+    ffffffff'ff600000-ffffffff'ff600fff r-x         0      1000  [vsyscall]
+--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+pid: 1318, tid: 1318, name: Binder:1318_2  >>> /system/bin/vold <<<
+    rax fffffffffffffe00  rbx 0000000000000000  rcx 00007ffff747eb07  rdx 00007fffffffe728
+    r8  0000000000000000  r9  0000000000000000  r10 0000000000000000  r11 0000000000000202
+    r12 00007ffff6ad3000  r13 0000000000000100  r14 00007fffffffe728  r15 00007ffff6ad3110
+    rdi 0000000000000004  rsi 00000000c0306201
+    rbp 00000000fffffff7  rsp 00007fffffffe638  rip 00007ffff747eb07
+
+backtrace:
+    #00 pc 000000000007cb07  /system/lib64/libc.so (__ioctl+7)
+    #01 pc 0000000000031e7a  /system/lib64/libc.so (ioctl+170)
+    #02 pc 000000000005a40e  /system/lib64/libbinder.so (android::IPCThreadState::talkWithDriver(bool)+254)
+    #03 pc 000000000005a5e0  /system/lib64/libbinder.so (android::IPCThreadState::getAndExecuteCommand()+16)
+    #04 pc 000000000005ad61  /system/lib64/libbinder.so (android::IPCThreadState::joinThreadPool(bool)+49)
+    #05 pc 0000000000013609  /system/bin/vold (main+2729)
+    #06 pc 00000000000bd6bc  /system/lib64/libc.so (__libc_init+92)
+
+stack:
+         00007fffffffe5b8  00007ffff7359058  /system/lib64/libcutils.so
+         00007fffffffe5c0  0000000000000002
+         00007fffffffe5c8  0000000000000000
+         00007fffffffe5d0  00007fffffffe600  [stack]
+         00007fffffffe5d8  00007ffff792412e  /system/lib64/libutils.so (_ZNK7android12SharedBuffer7releaseEj+46)
+         00007fffffffe5e0  00007ffff6ada140  [anon:libc_malloc]
+         00007fffffffe5e8  00007ffff7b29d7f  /system/lib64/libbinder.so (_ZN7android12ProcessState17spawnPooledThreadEb+239)
+         00007fffffffe5f0  00007ffff6803500  <anonymous:00007ffff6707000>
+         00007fffffffe5f8  00007ffff6ada140  [anon:libc_malloc]
+         00007fffffffe600  00007ffff6a9fcd8  [anon:libc_malloc]
+         00007fffffffe608  00007ffff6ad3000  [anon:libc_malloc]
+         00007fffffffe610  0000000000000000
+         00007fffffffe618  0000000000000001
+         00007fffffffe620  00000000ffffff92
+         00007fffffffe628  00007ffff7b057eb  /system/lib64/libbinder.so (_ZN7android14IPCThreadState14executeCommandEi+187)
+         00007fffffffe630  0000000000000001
+    #00  00007fffffffe638  00007ffff7433e7b  /system/lib64/libc.so (ioctl+171)
+    #01  00007fffffffe640  0000003000000018
+         ........  ........
+    #02  00007fffffffe720  00007ffff6ad30a8  [anon:libc_malloc]
+         ........  ........
+    #03  00007fffffffe790  00007ffff6ad3000  [anon:libc_malloc]
+         ........  ........
+    #04  00007fffffffe7b0  00007ffff6ad3000  [anon:libc_malloc]
+         ........  ........
+    #05  00007fffffffe7e0  00000000ffffffff
+         ........  ........
+    #06  00007fffffffe8e0  0000555555614b20  /system/bin/vold
+         00007fffffffe8e8  0000000000000000
+         00007fffffffe8f0  0000000000000000
+         00007fffffffe8f8  0000000000000000
+         00007fffffffe900  0000000000000000
+         00007fffffffe908  0000555555566b48  /system/bin/vold
+         00007fffffffe910  0000555555614ab0  /system/bin/vold
+         00007fffffffe918  0000555555614ac0  /system/bin/vold
+         00007fffffffe920  0000555555614b20  /system/bin/vold
+         00007fffffffe928  0000555555566b0c  /system/bin/vold
+         00007fffffffe930  0000000000000005
+         00007fffffffe938  00007fffffffeb2c  [stack]
+         00007fffffffe940  00007fffffffeb3d  [stack]
+         00007fffffffe948  00007fffffffeb5a  [stack]
+         00007fffffffe950  00007fffffffeb8b  [stack]
+         00007fffffffe958  00007fffffffeba6  [stack]
+--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+pid: 1318, tid: 1328, name: Binder:1318_1  >>> /system/bin/vold <<<
+    rax fffffffffffffe00  rbx 0000000000000000  rcx 00007ffff747eb07  rdx 00007ffff6901398
+    r8  0000000000000000  r9  0000000000000000  r10 0000000000000000  r11 0000000000000202
+    r12 00007ffff640d000  r13 0000000000000100  r14 00007ffff6901398  r15 00007ffff640d110
+    rdi 0000000000000004  rsi 00000000c0306201
+    rbp 00000000fffffff7  rsp 00007ffff69012a8  rip 00007ffff747eb07
+
+backtrace:
+    #00 pc 000000000007cb07  /system/lib64/libc.so (__ioctl+7)
+    #01 pc 0000000000031e7a  /system/lib64/libc.so (ioctl+170)
+    #02 pc 000000000005a40e  /system/lib64/libbinder.so (android::IPCThreadState::talkWithDriver(bool)+254)
+    #03 pc 000000000005a5e0  /system/lib64/libbinder.so (android::IPCThreadState::getAndExecuteCommand()+16)
+    #04 pc 000000000005ad61  /system/lib64/libbinder.so (android::IPCThreadState::joinThreadPool(bool)+49)
+    #05 pc 000000000007f857  /system/lib64/libbinder.so (android::PoolThread::threadLoop()+23)
+    #06 pc 000000000000f47a  /system/lib64/libutils.so (android::Thread::_threadLoop(void*)+298)
+    #07 pc 000000000009079b  /system/lib64/libc.so (__pthread_start(void*)+27)
+    #08 pc 000000000002bdad  /system/lib64/libc.so (__start_thread+61)
+
+stack:
+         00007ffff6901228  00007ffff6901460  <anonymous:00007ffff6805000>
+         00007ffff6901230  00007ffff6901480  <anonymous:00007ffff6805000>
+         00007ffff6901238  0000000000000000
+         00007ffff6901240  00007ffff6901270  <anonymous:00007ffff6805000>
+         00007ffff6901248  00007ffff792412e  /system/lib64/libutils.so (_ZNK7android12SharedBuffer7releaseEj+46)
+         00007ffff6901250  00007ffff6418000  [anon:libc_malloc]
+         00007ffff6901258  00007ffff7b29d7f  /system/lib64/libbinder.so (_ZN7android12ProcessState17spawnPooledThreadEb+239)
+         00007ffff6901260  00007ffff6a27288  [anon:libc_malloc]
+         00007ffff6901268  00007ffff6418000  [anon:libc_malloc]
+         00007ffff6901270  00007ffff6415018  [anon:libc_malloc]
+         00007ffff6901278  00007ffff640d000  [anon:libc_malloc]
+         00007ffff6901280  0000000000000000
+         00007ffff6901288  0000000000000001
+         00007ffff6901290  00000000ffffff92
+         00007ffff6901298  00007ffff7b057eb  /system/lib64/libbinder.so (_ZN7android14IPCThreadState14executeCommandEi+187)
+         00007ffff69012a0  fffffffffffffffc
+    #00  00007ffff69012a8  00007ffff7433e7b  /system/lib64/libc.so (ioctl+171)
+    #01  00007ffff69012b0  0000003000000018
+         ........  ........
+    #02  00007ffff6901390  00007ffff640d0a8  [anon:libc_malloc]
+         ........  ........
+    #03  00007ffff6901400  00007ffff640d000  [anon:libc_malloc]
+         ........  ........
+    #04  00007ffff6901420  00007ffff640d000  [anon:libc_malloc]
+         ........  ........
+    #05  00007ffff6901450  00007ffff6ada0a0  [anon:libc_malloc]
+         ........  ........
+    #06  00007ffff6901460  00007ffff6ada0a0  [anon:libc_malloc]
+         ........  ........
+    #07  00007ffff69014c0  00007ffff7492780  /system/lib64/libc.so (_ZL15__pthread_startPv)
+         ........  ........
+    #08  00007ffff69014d0  00007ffff7492780  /system/lib64/libc.so (_ZL15__pthread_startPv)
+         00007ffff69014d8  00007ffff7ff8948  <anonymous:00007ffff7ff8000>
+         00007ffff69014e0  0000000000000526
+         00007ffff69014e8  00007ffff7428a16  /system/lib64/libc.so (__bionic_clone+54)
+         00007ffff69014f0  00007ffff7ff8948  <anonymous:00007ffff7ff8000>
+         00007ffff69014f8  00007ffff68034f0  <anonymous:00007ffff6707000>
+         00007ffff6901500  0000052600000530
+         00007ffff6901508  0000000000000001
+         00007ffff6901510  00007ffff6804000  <anonymous:00007ffff6804000>
+         00007ffff6901518  00000000000fd4f0
+         00007ffff6901520  0000000000001000
+         00007ffff6901528  0000000000000000
+         00007ffff6901530  00007ffff74abb57  /system/lib64/libc.so (je_malloc+55)
+         00007ffff6901538  00007ffff6a9fcc0  [anon:libc_malloc]
+         00007ffff6901540  0000000000000003
+         00007ffff6901548  0000000000000000
+--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+pid: 1318, tid: 1329, name: Binder:1318_2  >>> /system/bin/vold <<<
+    rax fffffffffffffdfe  rbx 0000000000000000  rcx 00007ffff747eb6a  rdx 0000000000000000
+    r8  0000000000000000  r9  0000000000000000  r10 0000000000000000  r11 0000000000000246
+    r12 00007ffff68033f0  r13 0000000000000006  r14 0000000000000000  r15 0000000000000000
+    rdi 0000000000000007  rsi 00007ffff68033f0
+    rbp 0000000000000007  rsp 00007ffff6803378  rip 00007ffff747eb6a
+
+backtrace:
+    #00 pc 000000000007cb6a  /system/lib64/libc.so (__pselect6+10)
+    #01 pc 00000000000342d1  /system/lib64/libc.so (select+113)
+    #02 pc 0000000000003b76  /system/lib64/libsysutils.so (SocketListener::runListener()+294)
+    #03 pc 00000000000038e5  /system/lib64/libsysutils.so (SocketListener::threadStart(void*)+5)
+    #04 pc 000000000009079b  /system/lib64/libc.so (__pthread_start(void*)+27)
+    #05 pc 000000000002bdad  /system/lib64/libc.so (__start_thread+61)
+
+stack:
+         00007ffff68032f8  00007ffff74f9d94  [anon:.bss]
+         00007ffff6803300  0000000000000001
+         00007ffff6803308  00007ffff6a27300  [anon:libc_malloc]
+         00007ffff6803310  00007ffff6adf264  [anon:libc_malloc]
+         00007ffff6803318  00007ffff74f9d94  [anon:.bss]
+         00007ffff6803320  00007ffff6a41500  [anon:libc_malloc]
+         00007ffff6803328  00007ffff6a27308  [anon:libc_malloc]
+         00007ffff6803330  0000000000000000
+         00007ffff6803338  00007ffff74b0373  /system/lib64/libc.so (je_free+99)
+         00007ffff6803340  0000000000000003
+         00007ffff6803348  00007ffff6adf264  [anon:libc_malloc]
+         00007ffff6803350  0000000000000005
+         00007ffff6803358  00007ffff6a41500  [anon:libc_malloc]
+         00007ffff6803360  00000000000000c1
+         00007ffff6803368  00007ffff6adf264  [anon:libc_malloc]
+         00007ffff6803370  0000000000000005
+    #00  00007ffff6803378  00007ffff74362d2  /system/lib64/libc.so (select+114)
+    #01  00007ffff6803380  00007ffff6a27000  [anon:libc_malloc]
+         ........  ........
+    #02  00007ffff68033d0  0000000000000000
+         ........  ........
+    #03  00007ffff68034b0  0000000000000000
+         ........  ........
+    #04  00007ffff68034c0  00007ffff7492780  /system/lib64/libc.so (_ZL15__pthread_startPv)
+         ........  ........
+    #05  00007ffff68034d0  00007ffff7492780  /system/lib64/libc.so (_ZL15__pthread_startPv)
+         00007ffff68034d8  00007ffff7ff8948  <anonymous:00007ffff7ff8000>
+         00007ffff68034e0  0000000000000526
+         00007ffff68034e8  00007ffff7428a16  /system/lib64/libc.so (__bionic_clone+54)
+         00007ffff68034f0  00007ffff69014f0  <anonymous:00007ffff6805000>
+         00007ffff68034f8  00007ffff67054f0  <anonymous:00007ffff6609000>
+         00007ffff6803500  0000052600000531
+         00007ffff6803508  0000000000000000
+         00007ffff6803510  00007ffff6706000  <anonymous:00007ffff6706000>
+         00007ffff6803518  00000000000fd4f0
+         00007ffff6803520  0000000000001000
+         00007ffff6803528  0000000000000000
+         00007ffff6803530  0000000000000018
+         00007ffff6803538  00007ffff6a9ee20  [anon:libc_malloc]
+         00007ffff6803540  0000000000000000
+         00007ffff6803548  0000000000000000
+--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+pid: 1318, tid: 1675, name: Binder:1318_4  >>> /system/bin/vold <<<
+    rax fffffffffffffe00  rbx 0000000000000000  rcx 00007ffff747eb07  rdx 00007ffff63ff398
+    r8  0000000000000000  r9  0000000000000000  r10 0000000000000000  r11 0000000000000202
+    r12 00007ffff6ad3700  r13 0000000000000100  r14 00007ffff63ff398  r15 00007ffff6ad3810
+    rdi 0000000000000004  rsi 00000000c0306201
+    rbp 00000000fffffff7  rsp 00007ffff63ff2a8  rip 00007ffff747eb07
+
+backtrace:
+    #00 pc 000000000007cb07  /system/lib64/libc.so (__ioctl+7)
+    #01 pc 0000000000031e7a  /system/lib64/libc.so (ioctl+170)
+    #02 pc 000000000005a40e  /system/lib64/libbinder.so (android::IPCThreadState::talkWithDriver(bool)+254)
+    #03 pc 000000000005a5e0  /system/lib64/libbinder.so (android::IPCThreadState::getAndExecuteCommand()+16)
+    #04 pc 000000000005ad61  /system/lib64/libbinder.so (android::IPCThreadState::joinThreadPool(bool)+49)
+    #05 pc 000000000007f857  /system/lib64/libbinder.so (android::PoolThread::threadLoop()+23)
+    #06 pc 000000000000f47a  /system/lib64/libutils.so (android::Thread::_threadLoop(void*)+298)
+    #07 pc 000000000009079b  /system/lib64/libc.so (__pthread_start(void*)+27)
+    #08 pc 000000000002bdad  /system/lib64/libc.so (__start_thread+61)
+
+stack:
+         00007ffff63ff228  0000000000007000
+         00007ffff63ff230  0000000000007000
+         00007ffff63ff238  00007ffff6a00000  [anon:libc_malloc]
+         00007ffff63ff240  00007ffff6a067e8  [anon:libc_malloc]
+         00007ffff63ff248  0000000000000000
+         00007ffff63ff250  00000000000000ea
+         00007ffff63ff258  00007ffff749800e  /system/lib64/libc.so (arena_bin_malloc_hard+1966)
+         00007ffff63ff260  00000000000000f7
+         00007ffff63ff268  00007ffff6c00140  [anon:libc_malloc]
+         00007ffff63ff270  00000000000000ea
+         00007ffff63ff278  000000000000000d
+         00007ffff63ff280  000000000000001f
+         00007ffff63ff288  0000000000007000
+         00007ffff63ff290  00000000000007e0
+         00007ffff63ff298  00007ffff6c00140  [anon:libc_malloc]
+         00007ffff63ff2a0  fffffffffffffffc
+    #00  00007ffff63ff2a8  00007ffff7433e7b  /system/lib64/libc.so (ioctl+171)
+    #01  00007ffff63ff2b0  0000003000000018
+         ........  ........
+    #02  00007ffff63ff390  00007ffff6ad37a8  [anon:libc_malloc]
+         ........  ........
+    #03  00007ffff63ff400  00007ffff6ad3700  [anon:libc_malloc]
+         ........  ........
+    #04  00007ffff63ff420  00007ffff6ad3700  [anon:libc_malloc]
+         ........  ........
+    #05  00007ffff63ff450  00007ffff6ada140  [anon:libc_malloc]
+         ........  ........
+    #06  00007ffff63ff460  00007ffff6ada140  [anon:libc_malloc]
+         ........  ........
+    #07  00007ffff63ff4c0  00007ffff7492780  /system/lib64/libc.so (_ZL15__pthread_startPv)
+         ........  ........
+    #08  00007ffff63ff4d0  00007ffff7492780  /system/lib64/libc.so (_ZL15__pthread_startPv)
+         00007ffff63ff4d8  00007ffff7ff8948  <anonymous:00007ffff7ff8000>
+         00007ffff63ff4e0  0000000000000526
+         00007ffff63ff4e8  00007ffff7428a16  /system/lib64/libc.so (__bionic_clone+54)
+         00007ffff63ff4f0  00007ffff67054f0  <anonymous:00007ffff6609000>
+         00007ffff63ff4f8  0000000000000000
+         00007ffff63ff500  000005260000068b
+         00007ffff63ff508  0000000000000001
+         00007ffff63ff510  00007ffff6302000  <anonymous:00007ffff6302000>
+         00007ffff63ff518  00000000000fd4f0
+         00007ffff63ff520  0000000000001000
+         00007ffff63ff528  0000000000000000
+         00007ffff63ff530  00007ffff74abb57  /system/lib64/libc.so (je_malloc+55)
+         00007ffff63ff538  0000000000000000
+         00007ffff63ff540  0000000000000003
+         00007ffff63ff548  0000000000000000
+
+open files:
+    fd 0: /dev/null
+    fd 1: /dev/null
+    fd 2: /dev/null
+    fd 3: socket:[4603]
+    fd 4: /dev/binder
+    fd 5: socket:[4607]
+    fd 6: pipe:[4608]
+    fd 7: pipe:[4608]
