@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".SplashActivity">
+
+    <!-- 应用Logo -->
+    <ImageView
+    android:id="@+id/app_logo"
+    android:layout_width="150dp"
+    android:layout_height="150dp"
+    android:layout_centerInParent="true"
+    android:src="@drawable/ic_launcher_foreground"
+    android:contentDescription="App Logo" />
+
+    <!-- 应用标语或名称 -->
+    <TextView
+    android:id="@+id/app_slogan"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/app_logo"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="20dp"
+    android:text="欢迎来到我的Android应用"
+    android:textColor="#333333"
+    android:textSize="20sp"
+    android:textStyle="bold" />
+
+</RelativeLayout>
