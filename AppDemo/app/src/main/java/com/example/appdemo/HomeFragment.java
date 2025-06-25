@@ -1,6 +1,7 @@
 // app/src/main/java/com/example/appdemo/HomeFragment.java
 package com.example.appdemo; // 请替换为您的实际包名
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -16,6 +17,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
@@ -87,6 +90,37 @@ public class HomeFragment extends Fragment {
         // 初始化适配器
         homeAdapter = new HomeAdapter(R.layout.item_home, dataList);
         recyclerView.setAdapter(homeAdapter);
+
+        // 【新增】设置列表项的点击事件监听器
+        homeAdapter.setOnItemClickListener(
+                new OnItemClickListener() {
+                    @Override
+                    public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
+
+                        // 获取被点击的 HomeItem 对象
+                        HomeItem clikedItem = dataList.get(position);
+
+                        // 创建 Intent 准备跳转到 DetailActivity
+                        Intent intent = new Intent(getContext(), DetailActivity.class);
+
+                        // 将图片URL和标题作为 Extra 数据传递给 DetailActivity
+                        intent.putExtra( DetailActivity.EXTRA_IMAGE_URL, clikedItem.getImageUrl() );
+
+                        intent.putExtra( DetailActivity.EXTRA_ITEM_TITLE, clikedItem.getTitle());
+
+
+                        // 启动 DetailActivity
+                        startActivity(intent);
+
+                        // 可以在这里添加页面跳转动画
+                        // if (getActivity() != null) {
+                        //     getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                        // }
+
+                    }
+                }
+        );
+
 
         // 设置 SmartRefreshLayout 的监听器
         refreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {

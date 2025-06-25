@@ -51,6 +51,18 @@
 
         </activity>
 
+
+        <!-- 新增 DetailActivity 声明 -->
+        <activity
+            android:name=".DetailActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"> <!-- 指定父Activity，用于向上导航 -->
+            <!-- 如果需要，可以添加android:theme以自定义样式 -->
+        </activity>
+
+
+
+
     </application>
 
 </manifest>
