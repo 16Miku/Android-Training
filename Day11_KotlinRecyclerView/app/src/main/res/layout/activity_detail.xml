@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".DetailActivity">
+
+    <!-- 用于显示文本内容的 ScrollView，包含 TextView -->
+    <ScrollView
+        android:id="@+id/detailTextScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/detailLikeStatusTextView"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/detailTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:textStyle="normal"
+        android:padding="8dp"
+        tools:text="这是详情页的文本内容。这是一个更长的文本示例，用于在详情页展示更多的信息。我们可以添加多段文字，来模拟一篇短文章，以便更好地测试滚动视图和布局效果。例如，一段关于Android开发的介绍，或者一些随机的Lorem Ipsum文本。这个文本会很长，长到足以在屏幕上滚动，从而验证我们的UI布局是否合理。"/>
+    </ScrollView>
+
+    <!-- 用于显示图片内容的 ImageView -->
+    <ImageView
+        android:id="@+id/detailImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="fitCenter"
+        android:visibility="gone"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/detailLikeStatusTextView"
+        tools:src="@drawable/ic_launcher_background"
+        tools:visibility="visible"
+        android:contentDescription="详情页图片" />
+
+    <!-- 用于显示当前点赞状态的 TextView (文本提示) -->
+    <TextView
+        android:id="@+id/detailLikeStatusTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@id/detailLikeButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="点赞状态: 未点赞" />
+
+    <!-- 详情页的点赞按钮 -->
+    <ImageView
+        android:id="@+id/detailLikeButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_like_border"
+        android:contentDescription="详情页点赞按钮"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
