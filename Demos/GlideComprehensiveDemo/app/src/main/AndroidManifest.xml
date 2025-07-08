@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<!--android.permission.INTERNET: 允许应用进行网络请求，这是加载网络图片所必需的。
+android.permission.READ_EXTERNAL_STORAGE: 允许应用读取外部存储上的文件。
+android.permission.WRITE_EXTERNAL_STORAGE: 允许应用写入外部存储。虽然 Glide 磁盘缓存默认在应用私有缓存目录，但如果你想演示从外部存储写入和读取文件，可能需要。
+android.permission.READ_MEDIA_IMAGES: Android 13 及以上版本，读取媒体文件（包括图片）的新权限。
+android:requestLegacyExternalStorage="true": 在 Android 10 (API 29) 及以上版本，为了临时兼容旧版外部存储模型，可以在 application 标签中添加此属性。但在实际项目中，推荐适配 Scoped Storage。
+android:name=".MyApplication": 重要。将 application 的 android:name 属性设置为你的自定义 Application 类，即 MyApplication，这样 Glide 的 AppGlideModule 才能被正确初始化。
+<meta-data android:name="com.example.glidecomprehensive.MyApplication" android:value="GlideModule" />: 声明 AppGlideModule。虽然如果 isManifestParsingEnabled() 返回 false 可以省略，但为了保险起见，建议保留。android:name 的值是你的 AppGlideModule 类的完整路径。    -->
+
+
+    <!-- 访问网络权限，用于加载网络图片 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- 读取外部存储权限，用于从本地文件加载图片 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <!-- 在 Android 10 (API 29) 及以上，如果需要写入共享存储，可能还需要 WRITE_EXTERNAL_STORAGE，
+         但通常对于图片显示，READ_EXTERNAL_STORAGE 足够。
+         对于 Android 10+，推荐使用 Scoped Storage，不再直接请求此权限。
+         这里为了演示从外部文件加载，我们仍添加。 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!-- Android 13 (API 33) 及以上，需要 READ_MEDIA_IMAGES 权限来读取媒体文件 -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+
+
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.GlideComprehensiveDemo"
+        android:requestLegacyExternalStorage="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <!-- 修正：声明 AppGlideModule，将其指向新的 MyAppGlideModule 类 -->
+        <!-- 注意：android:name 的值是你的 AppGlideModule 类的完整路径 -->
+        <meta-data
+            android:name="com.example.glidecomprehensive.MyAppGlideModule"
+        android:value="GlideModule" />
+
+
+    </application>
+
+</manifest>

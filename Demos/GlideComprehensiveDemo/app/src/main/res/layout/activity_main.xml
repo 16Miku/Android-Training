@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- 1. 基本加载 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. 基本加载 (URL)"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <ImageView
+            android:id="@+id/image_basic_load"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:background="#EEE"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 2. 占位符与错误图 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. 占位符与错误图 (有效/无效URL)"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <ImageView
+            android:id="@+id/image_placeholder_error_valid"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:background="#EEE"
+            android:layout_marginBottom="8dp" />
+
+        <ImageView
+            android:id="@+id/image_placeholder_error_invalid"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:background="#EEE"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 3. 不同来源加载 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3. 不同来源加载 (Drawable, File, Bytes, URI)"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:id="@+id/image_from_drawable"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="centerInside"
+                android:background="#EEE"
+                android:layout_marginEnd="8dp" />
+
+            <ImageView
+                android:id="@+id/image_from_file"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:background="#EEE"
+                android:layout_marginEnd="8dp" />
+
+            <ImageView
+                android:id="@+id/image_from_bytes"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:background="#EEE" />
+        </LinearLayout>
+
+        <!-- 4. 图片转换 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4. 图片转换 (CenterCrop, FitCenter, Circle, Rounded, Custom)"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="8dp">
+
+            <ImageView
+                android:id="@+id/image_transform_center_crop"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#EEE"
+                android:layout_marginEnd="8dp" />
+
+            <ImageView
+                android:id="@+id/image_transform_fit_center"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#EEE"
+                android:layout_marginEnd="8dp" />
+
+            <ImageView
+                android:id="@+id/image_transform_circle"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#EEE" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:id="@+id/image_transform_rounded"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#EEE"
+                android:layout_marginEnd="8dp" />
+
+            <ImageView
+                android:id="@+id/image_transform_custom"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#EEE" />
+        </LinearLayout>
+
+        <!-- 5. 缓存管理 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5. 缓存管理"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btn_clear_memory_cache"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="清除内存缓存"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_clear_disk_cache"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="清除磁盘缓存" />
+        </LinearLayout>
+
+        <!-- 6. 请求优先级 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6. 请求优先级 (高/普通/低)"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:id="@+id/image_priority_high"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#EEE"
+                android:layout_marginEnd="8dp" />
+
+            <ImageView
+                android:id="@+id/image_priority_normal"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#EEE"
+                android:layout_marginEnd="8dp" />
+
+            <ImageView
+                android:id="@+id/image_priority_low"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#EEE" />
+        </LinearLayout>
+
+        <!-- 7. 缩略图 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7. 缩略图 (先加载小图再加载大图)"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <ImageView
+            android:id="@+id/image_thumbnail"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:background="#EEE"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 8. 过渡动画 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8. 过渡动画 (交叉淡入)"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <ImageView
+            android:id="@+id/image_transition"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:background="#EEE"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 9. 请求监听器 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9. 请求监听器 (成功/失败Toast)"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <ImageView
+            android:id="@+id/image_listener"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:background="#EEE"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 10. 强制覆盖尺寸 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10. 强制覆盖尺寸 (override)"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <ImageView
+            android:id="@+id/image_override"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:background="#EEE"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 11. RecyclerView 集成与预加载 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11. RecyclerView 集成 (预加载)"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_images"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" /> <!-- 固定高度用于演示 -->
+
+    </LinearLayout>
+</ScrollView>

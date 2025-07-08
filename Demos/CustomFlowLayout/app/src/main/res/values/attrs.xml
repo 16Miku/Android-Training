@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FlowLayout">
+        <!-- 子View之间的水平间距 -->
+        <attr name="horizontalSpacing" format="dimension" />
+        <!-- 行之间的垂直间距 -->
+        <attr name="verticalSpacing" format="dimension" />
+    </declare-styleable>
+</resources>

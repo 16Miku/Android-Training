@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自定义 View 文本下划线演示"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- 使用自定义的 UnderlinedTextView -->
+    <com.example.customviews.UnderlinedTextView
+        android:id="@+id/my_underlined_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:padding="10dp"
+        android:background="#E0E0E0"
+        android:layout_marginBottom="20dp"
+        />
+
+    <Button
+        android:id="@+id/btn_change_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="改变文本内容"
+        android:layout_marginBottom="10dp"/>
+
+    <Button
+        android:id="@+id/btn_change_color_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="改变颜色和大小"
+        android:layout_marginBottom="10dp"/>
+
+</LinearLayout>

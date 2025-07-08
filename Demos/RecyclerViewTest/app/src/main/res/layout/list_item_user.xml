@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp"
+
+    android:gravity="center_vertical"
+
+    android:background="?android:attr/selectableItemBackground"
+
+    android:clickable="true"
+
+    android:focusable="true">
+
+
+
+    <View
+        android:id="@+id/view_avatar_color"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/circle_shape"
+        android:layout_marginEnd="12dp" />
+
+
+
+    <TextView
+        android:id="@+id/text_view_user_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        tools:text="用户姓名" />
+
+    </LinearLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AIDLServer"
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <!-- 注册 CalculatorService -->
+        <service
+            android:name=".CalculatorService"
+            android:enabled="true"
+            android:exported="true"> <!-- 必须设置为 true，允许其他应用绑定 -->
+            <intent-filter>
+                <!-- 定义一个 Action，客户端可以通过这个 Action 来绑定 Service -->
+                <action android:name="com.example.aidlserver.CALCULATOR_SERVICE" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

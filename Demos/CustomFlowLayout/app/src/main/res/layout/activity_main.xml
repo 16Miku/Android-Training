@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自定义 FlowLayout 拖动排序演示"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"/>
+
+    <com.example.customflowlayout.FlowLayout
+        android:id="@+id/flow_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F0F0F0"
+        android:padding="8dp"
+        app:horizontalSpacing="10dp"
+        app:verticalSpacing="10dp"
+        >
+        <!-- 动态添加子View -->
+    </com.example.customflowlayout.FlowLayout>
+
+    <Button
+        android:id="@+id/add_tag_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="添加标签"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>

@@ -1,0 +1,6 @@
+ac: 1 usb: 1 wireless: 0 current_max: 500000 voltage_max: 5000000
+status: 2 health: 2 present: 1
+level: 100 voltage: 3600 temp: 324
+cycle count: 32
+
+getHealthInfo -> {.legacy = {.chargerAcOnline = 1, .chargerUsbOnline = 1, .chargerWirelessOnline = 0, .maxChargingCurrent = 500000, .maxChargingVoltage = 5000000, .batteryStatus = CHARGING, .batteryHealth = GOOD, .batteryPresent = 1, .batteryLevel = 100, .batteryVoltage = 3700, .batteryTemperature = 329, .batteryCurrent = 400000, .batteryCycleCount = 32, .batteryFullCharge = 4000000, .batteryChargeCounter = 1900000, .batteryTechnology = "Li-ion"}, .batteryCurrentAverage = 0, .diskStats = [0]{}, .storageInfos = [0]{}}

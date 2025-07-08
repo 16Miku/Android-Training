@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/syncGetButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="同步 GET 请求" />
+
+    <Button
+        android:id="@+id/asyncGetButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="异步 GET 请求" />
+
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="请求结果将显示在这里..."
+        android:textSize="16sp" />
+
+</LinearLayout>

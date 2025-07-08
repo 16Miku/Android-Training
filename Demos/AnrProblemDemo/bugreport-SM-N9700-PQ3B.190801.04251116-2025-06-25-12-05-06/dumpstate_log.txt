@@ -1,0 +1,70 @@
+can't find the pid
+Failed to find: /data/misc/anrd/
+Error opening file descriptor for /sys/kernel/debug/tracing/tracing_on: No such file or directory
+Adding dir /cache/recovery (recursive: 1)
+Duration of '/cache/recovery': 0.000s
+Adding dir /data/misc/recovery (recursive: 1)
+Duration of '/data/misc/recovery': 0.001s
+Adding dir /data/misc/update_engine_log (recursive: 1)
+Duration of '/data/misc/update_engine_log': 0.000s
+Adding dir /data/misc/logd (recursive: 0)
+Duration of '/data/misc/logd': 0.000s
+Unable to read link for /proc/1402/ns/mnt: No such file or directory
+Unable to read link for /proc/2989/ns/mnt: No such file or directory
+Unable to read link for /proc/3009/ns/mnt: No such file or directory
+Unable to read link for /proc/4149/ns/mnt: No such file or directory
+Unable to read link for /proc/4169/ns/mnt: No such file or directory
+Unable to read link for /proc/5545/ns/mnt: No such file or directory
+MOUNT INFO: 22 entries added to zip file
+Duration of 'MOUNT INFO': 0.010s
+Warning: Skipping "android.frameworks.displayservice@1.0::IDisplayService/default": no information for PID 1405, are you root?
+Warning: Skipping "android.frameworks.schedulerservice@1.0::ISchedulingPolicyService/default": no information for PID 1530, are you root?
+Warning: Skipping "android.hardware.audio.effect@4.0::IEffectsFactory/default": no information for PID 1373, are you root?
+Warning: Skipping "android.hardware.bluetooth@1.0::IBluetoothHci/default": no information for PID 1374, are you root?
+Warning: Skipping "android.hardware.broadcastradio@1.0::IBroadcastRadioFactory/default": no information for PID 1375, are you root?
+Warning: Skipping "android.hardware.camera.provider@2.4::ICameraProvider/legacy/0": no information for PID 1376, are you root?
+Warning: Skipping "android.hardware.cas@1.0::IMediaCasService/default": no information for PID 1377, are you root?
+Warning: Skipping "android.hardware.configstore@1.0::ISurfaceFlingerConfigs/default": no information for PID 1378, are you root?
+Warning: Skipping "android.hardware.drm@1.0::ICryptoFactory/clearkey": no information for PID 1380, are you root?
+Warning: Skipping "android.hardware.drm@1.0::ICryptoFactory/default": no information for PID 1379, are you root?
+Warning: Skipping "android.hardware.gatekeeper@1.0::IGatekeeper/default": no information for PID 1381, are you root?
+Warning: Skipping "android.hardware.gnss@1.0::IGnss/default": no information for PID 1382, are you root?
+Warning: Skipping "android.hardware.graphics.allocator@2.0::IAllocator/default": no information for PID 1383, are you root?
+Warning: Skipping "android.hardware.graphics.composer@2.1::IComposer/default": no information for PID 1384, are you root?
+Warning: Skipping "android.hardware.graphics.composer@2.1::IComposer/vr": no information for PID 1372, are you root?
+Warning: Skipping "android.hardware.health@2.0::IHealth/backup": no information for PID 1371, are you root?
+Warning: Skipping "android.hardware.health@2.0::IHealth/default": no information for PID 1385, are you root?
+Warning: Skipping "android.hardware.keymaster@3.0::IKeymasterDevice/default": no information for PID 1316, are you root?
+Warning: Skipping "android.hardware.light@2.0::ILight/default": no information for PID 1386, are you root?
+Warning: Skipping "android.hardware.media.omx@1.0::IOmx/default": no information for PID 1428, are you root?
+Warning: Skipping "android.hardware.oemlock@1.0::IOemLock/default": no information for PID 1387, are you root?
+Warning: Skipping "android.hardware.power@1.0::IPower/default": no information for PID 1388, are you root?
+Warning: Skipping "android.hardware.radio.deprecated@1.0::IOemHook/slot1": no information for PID 1429, are you root?
+Warning: Skipping "android.hardware.sensors@1.0::ISensors/default": no information for PID 1389, are you root?
+Warning: Skipping "android.hardware.usb@1.0::IUsb/default": no information for PID 1390, are you root?
+Warning: Skipping "android.hardware.vibrator@1.0::IVibrator/default": no information for PID 1391, are you root?
+Warning: Skipping "android.hardware.wifi@1.0::IWifi/default": no information for PID 1392, are you root?
+Warning: Skipping "android.hidl.allocator@1.0::IAllocator/ashmem": no information for PID 1370, are you root?
+Warning: Skipping "android.hidl.manager@1.0::IServiceManager/default": no information for PID 1314, are you root?
+Warning: Skipping "android.system.net.netd@1.0::INetd/default": no information for PID 1366, are you root?
+Warning: Skipping "android.system.wifi.keystore@1.0::IKeystore/default": no information for PID 1420, are you root?
+*** command 'lshal' failed: exit code 72
+Adding dir /data/misc/bluetooth/logs (recursive: 1)
+Duration of '/data/misc/bluetooth/logs': 0.000s
+taking late screenshot
+drop_root_user(): already running as Shell
+Error opening file:  (No such file or directory)
+*** command '/system/bin/screencap -p ' failed: exit code 1
+Failed to take screenshot on 
+logcat read failure
+*** command 'logcat -L -b all -v threadtime -v printable -v uid -d *:v' failed: exit code 1
+AddAnrTraceDir(): dump_traces_file=/data/anr/dumptrace_N5XY9t, anr_traces_dir=/data/anr
+Dumping current ANR traces (/data/anr/dumptrace_N5XY9t) to the main bugreport entry
+Error unlinking temporary trace path /data/anr/dumptrace_N5XY9t: Permission denied
+execvp on command 'parse_radio_log /proc/last_radio_log' failed (error: No such file or directory)
+*** command 'parse_radio_log /proc/last_radio_log' failed: exit code 1
+No IDumpstateDevice implementation
+Adding main entry (bugreport-SM-N9700-PQ3B.190801.04251116-2025-06-25-12-05-06.txt) from /data/user_de/0/com.android.shell/files/bugreports/bugreport-SM-N9700-PQ3B.190801.04251116-2025-06-25-12-05-06.tmp to .zip bugreport
+dumpstate id 3 finished around 2025/06/25 12:05:57 (51 s)
+Adding zip text entry main_entry.txt
+dumpstate_log.txt entry on zip file logged up to here

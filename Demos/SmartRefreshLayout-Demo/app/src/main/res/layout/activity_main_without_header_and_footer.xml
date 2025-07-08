@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <!-- SmartRefreshLayout 包裹 RecyclerView -->
+    <!--com.scwang.smart.refresh.layout.SmartRefreshLayout：这是 SmartRefreshLayout 的核心容器。
+    app:srlEnableLoadMore="true" 和 app:srlEnableRefresh="true"：分别用于启用上拉加载和下拉刷新功能。
+    app:srlPrimaryColor 和 app:srlAccentColor：设置刷新头部和底部的颜色。
+    com.scwang.smart.refresh.header.ClassicsHeader 和 com.scwang.smart.refresh.footer.ClassicsFooter：这是 SmartRefreshLayout 提供的内置经典样式头部和底部。它们必须直接作为 SmartRefreshLayout 的子视图，并且通常放在内容视图（如 RecyclerView）的前面和后面。
+    androidx.recyclerview.widget.RecyclerView：作为可滚动内容视图，放置在 Header 和 Footer 之间。    -->
+
+    <!--要让您在 MyApplication 中设置的全局配置生效，您需要：
+    1.从 `activity_main.xml` 中移除显式声明的 `Header` 和 `Footer` 子视图。 这将使 SmartRefreshLayout 回退到使用全局默认创建器。
+    2.从 `activity_main.xml` 中移除 `SmartRefreshLayout` 标签上的 `app:srlPrimaryColor` 和 `app:srlAccentColor` 属性。 这将允许 MyApplication 中设置的主题色生效。    -->
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srlEnableLoadMore="true"
+        app:srlEnableRefresh="true"
+        >
+
+
+
+        <!-- 滚动内容视图，例如 RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+    </LinearLayout>
